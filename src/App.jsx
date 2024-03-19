@@ -28,6 +28,15 @@ function App() {
         <Route exact path='/login' element={
           <p>login</p> 
         }/>
+        <Route exact path='/register' element={
+          <p>register</p> 
+        }/>
+        <Route exact path='/MyList' element={
+          <p>My List</p> 
+        }/>
+        <Route exact path='/results' element={
+          <p>Search results</p> 
+        }/>
         <Route exact path='/OneMoviePage' element={
           <OneMoviePage/>
         }/>
