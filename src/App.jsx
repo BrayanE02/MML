@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css'
 import OneMoviePage from './pages/OneMoviePage';
+import Card from './comp/Card';
 
 function App() {
 
@@ -8,7 +9,7 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route exact path='/' element={
-        <p>home</p> 
+        <Card/>
       }/>
       <Route exact path='/login' element={
         <p>login</p> 
