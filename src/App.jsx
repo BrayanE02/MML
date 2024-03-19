@@ -11,6 +11,8 @@ import Card from './comp/Card';
 
 //test data
 import * as testdata from './assets/json/testMovie.json';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 function App() {
 
@@ -23,13 +25,14 @@ function App() {
       <Routes>
         {/* Each route will be its own component under the element tage */}
         <Route exact path='/' element={
+          // This is just an example of one card, whoever does the home page can remove this and put it in their page. 
           <Card movie={testdata}/>
         }/>
         <Route exact path='/login' element={
-          <p>login</p> 
+          <Login/> 
         }/>
         <Route exact path='/register' element={
-          <p>register</p> 
+          <Register/> 
         }/>
         <Route exact path='/MyList' element={
           <p>My List</p> 
@@ -44,8 +47,9 @@ function App() {
       </Routes>
       </BrowserRouter>
 
-    </>
+        {/* Footer bar will go here: */}
     
+    </> 
     
   )
 }
