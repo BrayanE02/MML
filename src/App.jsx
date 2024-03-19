@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css'
+import OneMoviePage from './pages/OneMoviePage';
 
 function App() {
 
@@ -12,7 +13,9 @@ function App() {
       <Route exact path='/login' element={
         <p>login</p> 
       }/>
-      <Route/>
+      <Route exact path='/OneMoviePage' element={
+        <OneMoviePage/>
+      }/>
     </Routes>
     </BrowserRouter>
   )
