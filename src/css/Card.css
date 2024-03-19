@@ -1,0 +1,22 @@
+.card{
+    background-color: #bce7fd;
+    display: flex;
+    flex-direction: row;
+}
+
+/* img */
+.card-img-top{
+    width: 6rem;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
+
+/* Text */
+h5{
+    padding-top: 1rem;
+}
+p{
+    padding-top: 1rem;
+}
