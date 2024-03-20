@@ -4,6 +4,7 @@ import "../css/Card.css"
 
 function Card(props) {
   var ourMovie = props.movie;
+  console.log(props.movie)
   return (
     <>
     <div className="card" style={{ width: "15rem", height: "10rem"}}>
