@@ -1,6 +1,5 @@
 // React imports
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 
 // Css imports
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -8,7 +7,6 @@ import './App.css'
 
 //test data
 import * as testdata from './services/json/testMovie.json';
-import { getOneMovieById } from './services/MoviesService';
 
 //Our component imports
 import OneMoviePage from './pages/OneMoviePage';
@@ -18,17 +16,6 @@ import Register from './pages/Register';
 
 
 function App() {
-  const [OneMovie, setOneMovie] = useState("");
-
-  const getOneMovie = async () => {
-    const res = await getOneMovieById(1011985);
-
-    setOneMovie(res);
-  }
-
-  useEffect(() =>{
-    getOneMovie();
-  }, [false]);
 
   return (
     <>
@@ -40,11 +27,7 @@ function App() {
         {/* Each route will be its own component under the element tage */}
         <Route exact path='/' element={
           // This is just an example of one card, whoever does the home page can remove this and put it in their page. 
-          <div>
-            <Card movie={OneMovie}/>
             <Card movie={testdata}/>
-          </div>
-          
         }/>
         <Route exact path='/login' element={
           <Login/> 
