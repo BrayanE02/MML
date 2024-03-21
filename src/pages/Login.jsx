@@ -23,7 +23,7 @@ function Login() {
     }
 
     return (<>
-        <h1>Welcome Back to My Movie List</h1>
+        <h1 className="classh1">Welcome Back to My Movie List</h1>
         <form onSubmit={handleLoginSubmit}>
             <div className="mb-3">
                 <label htmlFor="username" className="form-label">
