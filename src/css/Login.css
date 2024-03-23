@@ -1,0 +1,28 @@
+/* Login form */
+form{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* labels for input fields */
+label{
+    padding-left: 4px;
+}
+
+/* form submit button */
+button{
+    margin-left: 4px;
+}
+/* h# headers */
+.classh1{
+    margin-bottom: 8rem;
+}
+h5{
+    text-align: center;
+}
+/* Register link */
+.link{
+    text-align: center;
+    justify-content: center;
+    justify-self: center;
+}
