@@ -1,4 +1,5 @@
 // React imports
+import { useState } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 
 // Css imports
@@ -26,13 +27,16 @@ function App() {
     navigate('/results')
   };
 
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const handleDropdownClick = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
   return (
     <>
       {/* Nav bar  */}
       <Nav/>
-
-      
-
       {/* these two are needed for routing */}
       
       <Routes>
@@ -41,7 +45,7 @@ function App() {
           // This is just an example of one card, whoever does the home page can remove this and put it in their page. 
           <>
           <div className="container mt-3">
-        <div className="input-group">
+        <div className="input-group d-flex justify-content-between">
           <input
             type="text"
             className="form-control"
@@ -49,6 +53,24 @@ function App() {
             aria-label="Search for movies"
             aria-describedby="search-btn"
           />
+          <div className="dropdown">
+            <button
+              className="btn btn-primary dropdown-toggle"
+              type="button"
+              onClick={handleDropdownClick}
+            >
+              Search by
+            </button>
+            <ul
+              className={`dropdown-menu dropdown-menu-right ${isDropdownOpen ? 'show' : ''}`}
+              aria-labelledby="dropdownMenuButton"
+            >
+              <li><input type="radio" name="searchCategory" id="name" value="name" /> Name</li>
+              <li><input type="radio" name="searchCategory" id="year" value="year" /> Year</li>
+              <li><input type="radio" name="searchCategory" id="genre" value="genre" /> Genre</li>
+              <li><input type="radio" name="searchCategory" id="director" value="director" /> Director</li>
+            </ul>
+          </div>
           <button className="btn btn-primary" id="search-btn" onClick={handleSearchClick}>
             Search
           </button>
