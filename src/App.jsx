@@ -1,5 +1,5 @@
 // React imports
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
 
 // Css imports
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -14,14 +14,37 @@ import Card from './components/Card';
 import Nav from './components/Nav';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import SearchResults from './pages/SearchResults';
 
 
 function App() {
+
+  const navigate = useNavigate();
+
+  const handleSearchClick = () => {
+    navigate('/results');
+  };
 
   return (
     <>
       {/* Nav bar  */}
       <Nav/>
+
+      <div className="container mt-3">
+        <div className="input-group">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Search for movies..."
+            aria-label="Search for movies"
+            aria-describedby="search-btn"
+          />
+          <button className="btn btn-primary" id="search-btn" onClick={handleSearchClick}>
+            Search
+          </button>
+        </div>
+      </div>
+
       {/* these two are needed for routing */}
       <BrowserRouter>
       <Routes>
@@ -40,7 +63,7 @@ function App() {
           <p>My List</p> 
         }/>
         <Route exact path='/results' element={
-          <p>Search results</p> 
+          <SearchResults/>
         }/>
         <Route exact path='/OneMoviePage' element={
           <OneMoviePage/>
