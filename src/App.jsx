@@ -11,6 +11,7 @@ import * as testdata from './services/json/testMovie.json';
 //Our component imports
 import OneMoviePage from './pages/OneMoviePage';
 import Card from './components/Card';
+import Nav from './components/Nav';
 import Login from './pages/Login';
 import Register from './pages/Register';
 
@@ -19,8 +20,8 @@ function App() {
 
   return (
     <>
-      {/* Nav bar will go here: */}
-
+      {/* Nav bar  */}
+      <Nav/>
       {/* these two are needed for routing */}
       <BrowserRouter>
       <Routes>
