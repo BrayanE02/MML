@@ -1,50 +1,36 @@
 // React imports
 import { useState } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // Css imports
 import 'bootstrap/dist/css/bootstrap.min.css'
-import './App.css'
+
+import Card from '../components/Card';
 
 //test data
-import * as testdata from './services/json/testMovie.json';
+import * as testdata from '../services/json/testMovie.json';
 
-//Our component imports
-import OneMoviePage from './pages/OneMoviePage';
-import Card from './components/Card';
-import Nav from './components/Nav';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import SearchResults from './pages/SearchResults';
-
-
-function App() {
-
+function SearchResults() {
+  
   // eslint-disable-next-line no-unused-vars
   const navigate = useNavigate();
 
   const handleSearchClick = () => {
     navigate('/results')
   };
-
+  
+    // State for controlling dropdown visibility
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
+    // Function to toggle dropdown visibility
   const handleDropdownClick = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
   return (
     <>
-      {/* Nav bar  */}
-      <Nav/>
-      {/* these two are needed for routing */}
-      
-      <Routes>
-        {/* Each route will be its own component under the element tage */}
-        <Route exact path='/' element={
-          // This is just an example of one card, whoever does the home page can remove this and put it in their page. 
-          <>
-          <div className="container mt-3">
+    {/* Search bar and dropdown */}
+  <div className="container mt-3">
         <div className="input-group d-flex justify-content-between">
           <input
             type="text"
@@ -76,33 +62,14 @@ function App() {
           </button>
         </div>
       </div>
-          <Card movie={testdata}/>
-          </>
-        }/>
-        <Route exact path='/login' element={
-          <Login/> 
-        }/>
-        <Route exact path='/register' element={
-          <Register/> 
-        }/>
-        <Route exact path='/MyList' element={
-          <p>My List</p> 
-        }/>
-        <Route exact path='/results' element={
-          <SearchResults/>
-        }/>
-        <Route exact path='/OneMoviePage' element={
-          <OneMoviePage/>
-        }/>
 
-      </Routes>
-      
+{/* Search results header */}
+<h1>Search Results</h1>
 
-        {/* Footer bar will go here: */}
-    
-    </> 
-    
+{/* Displaying test movie data using the Card component */}
+    <Card movie={testdata}/>
+    </>
   )
-}
+};
 
-export default App
+export default SearchResults;
