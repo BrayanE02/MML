@@ -21,8 +21,10 @@
     "id": 1096197,
     "imdb_id": "tt16253418",
     "original_language": "en",
-    "original_title": "No Way Up",
-    "overview": "Characters from different backgrounds are thrown together when the plane they're travelling on crashes into the Pacific Ocean. A nightmare fight for survival ensues with the air supply running out and dangers creeping in from all sides.",
+    "original_title": "Dune 2",
+    "genre": "Action",
+    "rating": "9",
+    "overview": "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the universe, he must prevent a terrible future only he can foresee.",
     "popularity": 2991.229,
     "poster_path": "/hu40Uxp9WtpL34jv3zyWLb5zEVY.jpg",
     "production_companies": [
@@ -63,7 +65,7 @@
         "name": "United Kingdom"
       }
     ],
-    "release_date": "2024-01-18",
+    "release_date": "2024-03-1",
     "revenue": 0,
     "runtime": 90,
     "spoken_languages": [
