@@ -20,7 +20,8 @@
   }
 
   .btn {
-    background-color: yellow;
+    background-color: blue;
+    color: white;
   }
 
   .btn:hover {
