@@ -9,7 +9,7 @@ function Nav() {
     <>
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <div className="container-fluid">
-    <a className="navbar-brand" href="#">
+    <a className="navbar-brand" href="/">
       MML
     </a>
     <button
@@ -26,18 +26,18 @@ function Nav() {
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav">
         <li className="nav-item">
-          <a className="nav-link active" href="/">
-            Home
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="/MyList">
+          <a className="nav-link active" href="/MyList">
             My List
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="/login">
             Login
+          </a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="/register">
+            Sign up
           </a>
         </li>
       </ul>
