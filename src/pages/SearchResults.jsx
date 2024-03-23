@@ -1,10 +1,11 @@
 // Css imports
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-import React from 'react';
 
 const SearchResults = () => {
-  return 
+  return (
+    <p>results</p>
+  )
 };
 
 export default SearchResults;

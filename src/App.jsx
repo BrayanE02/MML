@@ -1,5 +1,5 @@
 // React imports
-import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 
 // Css imports
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -19,10 +19,11 @@ import SearchResults from './pages/SearchResults';
 
 function App() {
 
+  // eslint-disable-next-line no-unused-vars
   const navigate = useNavigate();
 
   const handleSearchClick = () => {
-    navigate('/results');
+    navigate('/results')
   };
 
   return (
@@ -30,7 +31,16 @@ function App() {
       {/* Nav bar  */}
       <Nav/>
 
-      <div className="container mt-3">
+      
+
+      {/* these two are needed for routing */}
+      
+      <Routes>
+        {/* Each route will be its own component under the element tage */}
+        <Route exact path='/' element={
+          // This is just an example of one card, whoever does the home page can remove this and put it in their page. 
+          <>
+          <div className="container mt-3">
         <div className="input-group">
           <input
             type="text"
@@ -44,14 +54,8 @@ function App() {
           </button>
         </div>
       </div>
-
-      {/* these two are needed for routing */}
-      <BrowserRouter>
-      <Routes>
-        {/* Each route will be its own component under the element tage */}
-        <Route exact path='/' element={
-          // This is just an example of one card, whoever does the home page can remove this and put it in their page. 
-            <Card movie={testdata}/>
+          <Card movie={testdata}/>
+          </>
         }/>
         <Route exact path='/login' element={
           <Login/> 
@@ -70,7 +74,7 @@ function App() {
         }/>
 
       </Routes>
-      </BrowserRouter>
+      
 
         {/* Footer bar will go here: */}
     
