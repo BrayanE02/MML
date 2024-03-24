@@ -15,6 +15,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import SearchResults from './pages/SearchResults';
 import Home from './pages/Home';
+import MyList from './pages/MyList';
 
 import testdata from './services/json/testMovie.json'
 
@@ -42,7 +43,7 @@ function App() {
           <Register/> 
         }/>
         <Route exact path='/MyList' element={
-          <p>My List</p> 
+          <MyList></MyList>
         }/>
         <Route exact path='/results' element={
           <SearchResults/>
