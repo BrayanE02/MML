@@ -6,10 +6,11 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 
 //test data
-
+import testdata from './services/json/testMovie.json'
 
 //Our component imports
 import OneMovie from './pages/OneMovie';
+import AddToList from "./pages/AddToList";
 import Nav from './components/Nav';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -17,13 +18,9 @@ import SearchResults from './pages/SearchResults';
 import Home from './pages/Home';
 import MyList from './pages/MyList';
 
-import testdata from './services/json/testMovie.json'
+
 
 function App() {
-
-
-  
-
   return (
     <>
       {/* Nav bar  */}
@@ -48,9 +45,10 @@ function App() {
         <Route exact path='/results' element={
           <SearchResults/>
         }/>
-        <Route exact path='/OneMoviePage' element={
+        <Route exact path='/OneMovie' element={
           <OneMovie movie={testdata}/>
         }/>
+        <Route exact path="/AddToList" element={<AddToList movie={testdata}/>} />
 
       </Routes>
       
