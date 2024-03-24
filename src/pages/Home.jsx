@@ -1,93 +1,46 @@
 import * as testdata from '../services/json/testMovie.json';
 
 import Search from '../components/Search';
-import Card from '../components/Card';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css'
 
 import "../css/Home.css"
-
+import SwiperBar from '../components/SwiperBar';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCards } from 'swiper/modules';
 
 function Home() {
-
+    var moviesListComedies = [testdata, testdata, testdata, testdata, testdata,]
+    var moviesListTop = [testdata, testdata, testdata, testdata, testdata,]
+    var moviesListNew = [testdata, testdata, testdata, testdata, testdata,]
     return (
         <>
+            <h2 className='h2Home'>My Movie List</h2>
             <Search></Search>
             <div className='carouselDiv'>
-                <div
-                    id="carouselExampleControls"
-                    className="carousel slide"
-                    data-bs-ride="carousel"
+                <Swiper
+                    effect={'cards'}
+                    grabCursor={true}
+                    modules={[EffectCards]}
+                    className="swiper-car"
                 >
-                    <div className="carousel-inner ">
-                        <div className="carousel-item active">
-                            <img src={"https://image.tmdb.org/t/p/w500/" + testdata.backdrop_path} className="d-block w-100" alt="..." />
-                        </div>
-                        <div className="carousel-item">
-                            <img src={"https://image.tmdb.org/t/p/w500/" + "/zAepSrO99owYwQqi0QG2AS0dHXw.jpg"} className="d-block w-100" alt="..." />
-                        </div>
-                        <div className="carousel-item">
-                            <img src={"https://image.tmdb.org/t/p/w500/" + "/xvk5AhfhgQcTuaCQyq3XqAnhEma.jpg"} className="d-block w-100" alt="..." />
-                        </div>
-                    </div>
-                    <button
-                        className="carousel-control-prev"
-                        type="button"
-                        data-bs-target="#carouselExampleControls"
-                        data-bs-slide="prev"
-                    >
-                        <span className="carousel-control-prev-icon" aria-hidden="true" />
-                        <span className="visually-hidden">Previous</span>
-                    </button>
-                    <button
-                        className="carousel-control-next"
-                        type="button"
-                        data-bs-target="#carouselExampleControls"
-                        data-bs-slide="next"
-                    >
-                        <span className="carousel-control-next-icon" aria-hidden="true" />
-                        <span className="visually-hidden">Next</span>
-                    </button>
-                </div>
+                    <SwiperSlide className='swiper-slide-car' ><img src={"https://image.tmdb.org/t/p/w500/" + testdata.backdrop_path} className="d-block " alt="..." /></SwiperSlide>
+                    <SwiperSlide className='swiper-slide-car' ><img src={"https://image.tmdb.org/t/p/w500/" + "/gklkxY0veMajdCiGe6ggsh07VG2.jpg"} className="d-block " alt="..." /></SwiperSlide>
+                    <SwiperSlide className='swiper-slide-car' ><img src={"https://image.tmdb.org/t/p/w500/" + "/87IVlclAfWL6mdicU1DDuxdwXwe.jpg"} className="d-block " alt="..." /></SwiperSlide>
+                    <SwiperSlide className='swiper-slide-car' ><img src={"https://image.tmdb.org/t/p/w500/" + "/u0P5drNyTrZoGyJONPcZGbv1mNP.jpg"} className="d-block " alt="..." /></SwiperSlide>
+                </Swiper>
             </div>
+            
             <br></br>
             <h3>Top Movies</h3>
-            <Swiper
-                spaceBetween={10}
-                slidesPerView={3.5}
-            >
-                <SwiperSlide><Card movie={testdata} /></SwiperSlide>
-                <SwiperSlide><Card movie={testdata} /></SwiperSlide>
-                <SwiperSlide><Card movie={testdata} /></SwiperSlide>
-                <SwiperSlide><Card movie={testdata} /></SwiperSlide>
-                <SwiperSlide><Card movie={testdata} /></SwiperSlide>
-            </Swiper>
+            <SwiperBar movies={moviesListTop}></SwiperBar>
             <br></br>
             <h3>Best Comedies</h3>
-            <Swiper
-                spaceBetween={10}
-                slidesPerView={3.5}
-            >
-                <SwiperSlide><Card movie={testdata} /></SwiperSlide>
-                <SwiperSlide><Card movie={testdata} /></SwiperSlide>
-                <SwiperSlide><Card movie={testdata} /></SwiperSlide>
-                <SwiperSlide><Card movie={testdata} /></SwiperSlide>
-                <SwiperSlide><Card movie={testdata} /></SwiperSlide>
-            </Swiper>
+            <SwiperBar movies={moviesListComedies}></SwiperBar>
             <br></br>
             <h3>New Movies</h3>
-            <Swiper
-                spaceBetween={10}
-                slidesPerView={3.5}
-            >
-                <SwiperSlide><Card movie={testdata} /></SwiperSlide>
-                <SwiperSlide><Card movie={testdata} /></SwiperSlide>
-                <SwiperSlide><Card movie={testdata} /></SwiperSlide>
-                <SwiperSlide><Card movie={testdata} /></SwiperSlide>
-                <SwiperSlide><Card movie={testdata} /></SwiperSlide>
-            </Swiper>
-            
+            <SwiperBar movies={moviesListNew}></SwiperBar>
+
         </>
     )
 }

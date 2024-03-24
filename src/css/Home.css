@@ -1,11 +1,25 @@
-.carousel{
-    width: 50%;
+.swiper-car {
+  padding-top: 10px;
+  width: 510px;
+  height: 320px;
 }
-.carouselDiv{
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
+
+.swiper-slide-car {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  
 }
-.d-block{
-    border-radius: 20px;
+
+.swiper-slide-car:nth-child(1n) {
+  background-color: #bce7fd;
 }
+
+.h2Home{
+  text-align: center;
+  color: #f3CB13;
+  font-weight: bold;
+  font-size: 70px;
+}
+
