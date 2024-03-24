@@ -1,0 +1,11 @@
+.carousel{
+    width: 50%;
+}
+.carouselDiv{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.d-block{
+    border-radius: 20px;
+}
