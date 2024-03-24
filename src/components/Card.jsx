@@ -8,7 +8,7 @@ function Card(props) {
 
     const handleClick = () => {
       console.log("here")
-        navigate('/OneMoviePage')
+        navigate('/OneMovie')
     };
   var ourMovie = props.movie;
   return (
