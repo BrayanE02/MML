@@ -5,7 +5,7 @@ import "../css/Card.css"
 function Card(props) {
   var ourMovie = props.movie;
   return (
-    <>
+    <a href="./OneMoviePage">
     <div className="card" style={{ width: "15rem", height: "10rem"}}>
       <img src={"https://image.tmdb.org/t/p/w300/" + ourMovie.poster_path} className="card-img-top" alt={ourMovie.original_title + " poster"} />
       <div className="card-body">
@@ -16,7 +16,7 @@ function Card(props) {
       </div>
     </div>
 
-    </>
+    </a>
   );
 }
 

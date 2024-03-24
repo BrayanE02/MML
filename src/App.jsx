@@ -9,13 +9,14 @@ import './App.css'
 
 
 //Our component imports
-import OneMoviePage from './pages/OneMoviePage';
+import OneMovie from './pages/OneMovie';
 import Nav from './components/Nav';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import SearchResults from './pages/SearchResults';
 import Home from './pages/Home';
 
+import testdata from './services/json/testMovie.json'
 
 function App() {
 
@@ -47,7 +48,7 @@ function App() {
           <SearchResults/>
         }/>
         <Route exact path='/OneMoviePage' element={
-          <OneMoviePage/>
+          <OneMovie movie={testdata}/>
         }/>
 
       </Routes>

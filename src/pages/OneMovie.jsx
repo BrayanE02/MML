@@ -1,6 +1,4 @@
-import moviep from "../assets/dune2.png";
 
-import "../css/OneMoviePage.css";
 
 export default function OneMovie(props) {
   var movie = props.movie;
@@ -8,10 +6,10 @@ export default function OneMovie(props) {
     <>
       <h1 className="movie-title">{movie.original_title}</h1>
       <div className="movie-container">
-        <img className="movie-image" src={moviep} alt="Dune2" />
+        <img className="movie-image" src={"https://image.tmdb.org/t/p/w300/" + movie.poster_path} alt="Dune2" />
         <div className="movie-details">
           <h2>Genre</h2>
-          <p>{movie.genre}</p>
+          <p>{movie.genre_ids[0]}</p>
           <h2>Release Date</h2>
           <p>{movie.release_date}</p>
           <h2>Rating</h2>
