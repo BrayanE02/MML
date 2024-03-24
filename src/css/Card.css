@@ -2,6 +2,7 @@
     background-color: #bce7fd;
     display: flex;
     flex-direction: row;
+    margin: 5px;
 }
 
 /* img */
@@ -18,7 +19,11 @@ h5{
     padding-top: 1rem;
     text-align: left;
 }
-p{
-    padding-top: 1rem;
-    
+.btn-myList{
+    margin-bottom: 1rem;
+    position: relative;
+    top: -1rem;
+}
+.button-container{
+    display: flex;
 }

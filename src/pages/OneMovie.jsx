@@ -15,7 +15,7 @@ export default function OneMovie(props) {
           <h2>Overview</h2>
           <p>{movie.overview}</p>
           <a href="/AddToList">
-            <button className="btn">Add To List</button>
+            <button className="btn-list">Add To List</button>
           </a>
         </div>
       </div>

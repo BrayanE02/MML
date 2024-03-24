@@ -44,7 +44,7 @@ export default function AddToList(props) {
             <option value="10">10</option>
           </select>
         </div>
-          <button className="btn" type="submit">Add To List</button>
+          <button className="btn-list" type="submit">Add To List</button>
         </div>
       </div>
     </>
