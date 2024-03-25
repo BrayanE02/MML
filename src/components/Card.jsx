@@ -5,15 +5,15 @@ import { useNavigate } from 'react-router-dom';
 //the props paramiter is be the json for a movie
 function Card(props) {
   const navigate = useNavigate();
-
+  var ourMovie = props.movie;
     const handleClick = () => {
-      console.log("here")
-        navigate('/OneMovie')
+      props.setOneMovieIDFunc(props.movie)
+      navigate('/OneMovie')
     };
     const handleRemove = () => {
       console.log(ourMovie.id)
     };
-  var ourMovie = props.movie;
+  
 
   var isList = false;
   if(props.user != undefined){

@@ -5,8 +5,9 @@ import { Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 
-//test data
+//data
 import testdata from './services/json/testMovie.json'
+import * as APIService from './services/MoviesService'
 
 //Our component imports
 import OneMovie from './pages/OneMovie';
@@ -17,10 +18,45 @@ import Register from './pages/Register';
 import SearchResults from './pages/SearchResults';
 import Home from './pages/Home';
 import MyList from './pages/MyList';
+import { useState, useEffect } from 'react';
 
 
 
 function App() {
+  //difine our hooks here
+  //home page hooks
+  const [topMoviesList, setTopMovieList] = useState([]);
+  const [comedyMoviesList, setComedyMoviesList] = useState([]);
+  const [newMoviesList, setNewMoviesList] = useState([]);
+  const [backdrops, setBackDrops] = useState([]);
+
+  //OnePage hooks
+  const [oneMovie, setOneMovie] = useState("");
+
+  //this calls the function when the page it loaded
+  useEffect(() =>{
+    loadLists();
+  }, [true]);
+
+  //loads the currently selected moive
+  const loadOneMovie = async (movie) =>{
+    setOneMovie(movie);
+  }
+  //This gets all three list needed for the home page
+  const loadLists = async () => {
+    //call the API
+    const topComedy = await APIService.getTopComedyMovies();
+
+    const topMovies = await APIService.getTopMoviesAllTime();
+
+    const newMovies = await APIService.getTopNewMovies();
+    
+    //set the values of the list
+    setTopMovieList(topMovies.results);
+    setComedyMoviesList(topComedy.results);
+    setNewMoviesList(newMovies.results);
+    setBackDrops([topMovies.results[0].backdrop_path, topMovies.results[1].backdrop_path, topMovies.results[2].backdrop_path, topMovies.results[3].backdrop_path]);
+  }
   return (
     <>
       {/* Nav bar  */}
@@ -31,7 +67,7 @@ function App() {
         {/* Each route will be its own component under the element tage */}
         <Route exact path='/' element={
           // This is just an example of one card, whoever does the home page can remove this and put it in their page. 
-          <Home/>
+          <Home topMovies={topMoviesList} topComedy={comedyMoviesList} newMovies={newMoviesList} backdrops={backdrops} setOneMovieIDFunc={loadOneMovie}/>
         }/>
         <Route exact path='/login' element={
           <Login/> 
@@ -46,7 +82,7 @@ function App() {
           <SearchResults/>
         }/>
         <Route exact path='/OneMovie' element={
-          <OneMovie movie={testdata}/>
+          <OneMovie movie={oneMovie}/>
         }/>
         <Route exact path="/AddToList" element={<AddToList movie={testdata}/>} />
 
