@@ -106,8 +106,8 @@ function Register() {
                 Submit
             </button>
         </form>
-        <div className="link">
-            <a href="/login">Existing User? Login Here</a>
+        <div className="link" >
+            <a href="/login" style={{ color: "black"}}>Existing User? Login Here</a>
         </div>
     </div>);
 }

@@ -19,11 +19,15 @@ import SearchResults from './pages/SearchResults';
 import Home from './pages/Home';
 import MyList from './pages/MyList';
 import { useState, useEffect } from 'react';
+import { useCookies } from 'react-cookie';
 
 
 
 function App() {
   //difine our hooks here
+  //cookies
+  const [cookies, setCookie, removeCookie] = useCookies(['user']);
+
   //home page hooks
   const [topMoviesList, setTopMovieList] = useState([]);
   const [comedyMoviesList, setComedyMoviesList] = useState([]);
@@ -31,7 +35,7 @@ function App() {
   const [backdrops, setBackDrops] = useState([]);
 
   //OnePage hooks
-  const [oneMovie, setOneMovie] = useState("");
+  const [oneMovie, setOneMovie] = useState(false);
 
   //this calls the function when the page it loaded
   useEffect(() =>{
@@ -55,14 +59,22 @@ function App() {
     setTopMovieList(topMovies.results);
     setComedyMoviesList(topComedy.results);
     setNewMoviesList(newMovies.results);
-    setBackDrops([topMovies.results[0].backdrop_path, topMovies.results[1].backdrop_path, topMovies.results[2].backdrop_path, topMovies.results[3].backdrop_path]);
+    setBackDrops([topMovies.results[0].backdrop_path, topComedy.results[1].backdrop_path, newMovies.results[2].backdrop_path, topMovies.results[3].backdrop_path]);
   }
+
+  const login = (prod) =>{
+    setCookie('user', prod, {path: '/'});
+  }
+  const delCook = () =>{
+    removeCookie('user', {path: '/'});
+  }
+
   return (
     <>
       {/* Nav bar  */}
       <Nav/>
       {/* these two are needed for routing */}
-      
+      <h1></h1>
       <Routes>
         {/* Each route will be its own component under the element tage */}
         <Route exact path='/' element={
@@ -70,13 +82,14 @@ function App() {
           <Home topMovies={topMoviesList} topComedy={comedyMoviesList} newMovies={newMoviesList} backdrops={backdrops} setOneMovieIDFunc={loadOneMovie}/>
         }/>
         <Route exact path='/login' element={
-          <Login/> 
+          <Login setLogin={login} userCook={cookies.user} deleteCookie={delCook}/> 
         }/>
         <Route exact path='/register' element={
           <Register/> 
         }/>
         <Route exact path='/MyList' element={
-          <MyList></MyList>
+          (cookies.user != undefined)? <MyList user={cookies.user}></MyList>: <Login setLogin={login}/>
+          
         }/>
         <Route exact path='/results' element={
           <SearchResults/>
