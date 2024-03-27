@@ -40,7 +40,7 @@ function App() {
   //this calls the function when the page it loaded
   useEffect(() =>{
     loadLists();
-  }, [true]);
+  }, []);
 
   //loads the currently selected moive
   const loadOneMovie = async (movie) =>{
