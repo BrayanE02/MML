@@ -44,8 +44,25 @@
     margin: 0;
     border-radius: 0px;
 }
-.arrow{
-  height:25px;
-  width:25px;
-  
+
+.search-div{
+  display: flex;
+}
+
+.btn-search{
+  background-color: #B3E9C7;
+  color: white;
+}
+.btn-search:hover{
+  background-color: #A0D9A9;
+  color: white;
+}
+.btn-search.show {
+  background-color: #A0D9A9; 
+}
+.dropdown-menu{
+  background-color: #94d3a2;
+}
+.dropdown-item:hover{
+  background-color: #A0D9A9;
 }

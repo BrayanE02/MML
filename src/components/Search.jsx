@@ -1,54 +1,114 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import "../css/Search.css"
-import arrow from '../assets/dropdown-arrow.png';
+import "../css/Search.css";
 
-function Search(){    
+import testdata from '../services/json/testMovie.json'
+
+function Search(props) {
     const navigate = useNavigate();
 
-    const handleSearchClick = () => {
+    //set up hooks for the radio buttons and search bar
+    const [hookRadio, setHookRadio] = useState("Name");
+    const [hookSearch, setSearch] = useState('');
+
+    const handleSearchChange = (e) => {
+        setSearch(e.target.value);
+        console.log(hookSearch);
+    };
+    const handleRadioChange = (e) => {
+        setHookRadio(e.target.value, 10);
+        console.log(hookRadio);
+    };
+    const handleSearchClick = (event) => {
+        event.preventDefault();
+        //log the search term and what to search by
+        console.log(hookSearch);
+        console.log(hookRadio);
+
+        //query the api using the results here
+        var results = [testdata, testdata] //this is just test data for now
+
+        //update the search results list with data
+        props.updateSearch(results);
+
+        //go to the results page
         navigate('/results')
     };
 
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-    const handleDropdownClick = () => {
-        setIsDropdownOpen(!isDropdownOpen);
-    };
-    return(    
-        <div className="container mt-3">
-            <div className="input-group d-flex">
+    return (
+        <form onSubmit={handleSearchClick} id='searchform'>
+            <div className="mb-3 flex-container search-div">
                 <input
                     type="text"
-                    className="searchbar"
-                    placeholder="Search for movies..."
-                    aria-label="Search for movies"
-                    aria-describedby="search-btn"
-                    
+                    className="form-control"
+                    id="exampleInputPassword1"
+                    onChange={handleSearchChange}
                 />
                 <div className="dropdown">
                     <button
-                        className="btndropdown"
+                        className="btn btn-search dropdown-toggle"
                         type="button"
-                        onClick={handleDropdownClick}
+                        id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
                     >
-                        <img src={arrow} className='arrow'/>
+                        Search By
                     </button>
-                    <ul
-                        className={`dropdown-menu  ${isDropdownOpen ? 'show' : ''}`}
-                        aria-labelledby="dropdownMenuButton"
-                    >
-                        <li><input type="radio" name="searchCategory" id="name" value="name"/> Name</li>
-                        <li><input type="radio" name="searchCategory" id="year" value="year" /> Year</li>
-                        <li><input type="radio" name="searchCategory" id="genre" value="genre" /> Genre</li>
-                        <li><input type="radio" name="searchCategory" id="director" value="director" /> Director</li>
+                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1" id='radiosearch' onChange={handleRadioChange}>
+                        <li>
+                            <>
+                                <input
+                                    className="form-check-input"
+                                    type="radio"
+                                    name="flexRadioDefault"
+                                    id="flexRadioDefault1"
+                                    defaultChecked
+                                    value={"Name"}
+                                />
+                                <label className="form-check-label" htmlFor="flexRadioDefault1" >
+                                    Name
+                                </label>
+                            </>
+
+                        </li>
+                        <li>
+                        <>
+                                <input
+                                    className="form-check-input"
+                                    type="radio"
+                                    name="flexRadioDefault"
+                                    id="flexRadioDefault1"
+                                    value={"Rating"}
+                                />
+                                <label className="form-check-label" htmlFor="flexRadioDefault1">
+                                    Rating
+                                </label>
+                            </>
+                        </li>
+                        <li>
+                        <>
+                                <input
+                                    className="form-check-input"
+                                    type="radio"
+                                    name="flexRadioDefault"
+                                    id="flexRadioDefault1"
+                                    value={"Genre"}
+                                />
+                                <label className="form-check-label" htmlFor="flexRadioDefault1" >
+                                    Genre
+                                </label>
+                            </>
+                        </li>
                     </ul>
                 </div>
-                <button className="searchbtn" id="search-btn" onClick={handleSearchClick}>
+
+                <button type="submit" className="btn btn-search">
                     Search
                 </button>
             </div>
-        </div>
+
+        </form>
+
     )
 }
 

@@ -16,7 +16,7 @@ function Home(params) {
 
     return (
         <>
-            <Search></Search>
+            <Search updateSearch={params.changeSearch}></Search>
             <div className='carouselDiv'>
                 <Swiper
                     effect={'cards'}

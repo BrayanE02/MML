@@ -34,6 +34,9 @@ function App() {
   const [newMoviesList, setNewMoviesList] = useState([]);
   const [backdrops, setBackDrops] = useState([]);
 
+  //Search page hooks
+  const [searchResults, setSearchResults] = useState([]);
+
   //OnePage hooks
   const [oneMovie, setOneMovie] = useState(false);
 
@@ -79,7 +82,7 @@ function App() {
         {/* Each route will be its own component under the element tage */}
         <Route exact path='/' element={
           // This is just an example of one card, whoever does the home page can remove this and put it in their page. 
-          <Home topMovies={topMoviesList} topComedy={comedyMoviesList} newMovies={newMoviesList} backdrops={backdrops} setOneMovieIDFunc={loadOneMovie}/>
+          <Home topMovies={topMoviesList} topComedy={comedyMoviesList} newMovies={newMoviesList} backdrops={backdrops} setOneMovieIDFunc={loadOneMovie} changeSearch={setSearchResults}/>
         }/>
         <Route exact path='/login' element={
           <Login setLogin={login} userCook={cookies.user} deleteCookie={delCook}/> 
@@ -92,7 +95,7 @@ function App() {
           
         }/>
         <Route exact path='/results' element={
-          <SearchResults/>
+          <SearchResults changeSearch={setSearchResults} searchResults={searchResults}/>
         }/>
         <Route exact path='/OneMovie' element={
           <OneMovie movie={oneMovie}/>

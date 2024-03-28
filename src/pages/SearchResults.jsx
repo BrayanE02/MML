@@ -7,20 +7,29 @@ import Card from '../components/Card';
 import Search from '../components/Search';
 
 //test data
-import * as testdata from '../services/json/testMovie.json';
 
-function SearchResults() {
-
+function SearchResults(params) {
+  var results = params.searchResults;
+  const movies = results.map((movie) => {
+    return(
+      <Card movie={movie} key={Math.random(1, 1000)}></Card>
+    )
+  });
   return (
     <>
-{/* Search bar and dropdown */}
-    <Search></Search>
+      {/* Search bar and dropdown */}
+      <Search updateSearch={params.changeSearch}></Search>
 
-{/* Search results header */}
-<h1>Search Results</h1>
+      {/* Search results header */}
+      <h1>Search Results</h1>
 
-{/* Displaying test movie data using the Card component */}
-    <Card movie={testdata}/>
+      {/* Displaying test movie data using the Card component */}
+      <div className='container mt-3'> 
+        <h3>Watched</h3>
+        <div className='div-cardlist'>
+          {movies}
+        </div>
+    </div>
     </>
   )
 }
