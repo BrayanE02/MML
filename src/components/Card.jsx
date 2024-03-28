@@ -24,7 +24,7 @@ function Card(props) {
     <>
     {!isList ? 
     // This is for our card with no buttons that takes you to the one movie page with a click anywhere
-      <div className="card" onClick={handleClick} style={{ width: "fit-content", height: "10rem", cursor: "pointer" }}>
+      <div className="card" onClick={handleClick} style={{ width: "10rem", height: "21rem", cursor: "pointer" }}>
           <img src={"https://image.tmdb.org/t/p/w300/" + ourMovie.poster_path} className="card-img-top" alt={ourMovie.original_title + " poster"} />
           <div className="card-body">
             <h5 className="card-title">{ourMovie.original_title}</h5>
@@ -35,7 +35,7 @@ function Card(props) {
       </div>
       :
       //This is for our card with a remove and add button
-      <div className="card" style={{ width: "18rem", height: "10rem", cursor: "pointer" }}>
+      <div className="card" style={{ width: "10rem", height: "23rem", cursor: "pointer" }}>
           <img src={"https://image.tmdb.org/t/p/w300/" + ourMovie.poster_path} className="card-img-top" alt={ourMovie.original_title + " poster"} />
           <div className="card-body">
             <h5 className="card-title">{ourMovie.original_title}</h5>
