@@ -24,7 +24,7 @@ import { useCookies } from 'react-cookie';
 
 
 function App() {
-  //difine our hooks here
+  //define our hooks here
   //cookies
   const [cookies, setCookie, removeCookie] = useCookies(['user']);
 
@@ -72,7 +72,7 @@ function App() {
   return (
     <>
       {/* Nav bar  */}
-      <Nav/>
+      <Nav isLog={(cookies.user != undefined)? true : false}/>
       {/* these two are needed for routing */}
       <h1></h1>
       <Routes>

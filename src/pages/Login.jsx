@@ -29,19 +29,24 @@ function Login(props) {
     //Handle a login submit
     const handleLoginSubmit = async (event) => {
         event.preventDefault();
+        //call the users DAO for logging in
         let res;
         res = await UserDAO.logIn(hookUsername, hookPassword);
+
         console.log("login request");
         console.log("results", res.data);
 
+        //if re.id is defined, meaning we found a user
         if(res.ID){
-            console.log("here")
             //clear username and pw
             res.Username = "";
             res.Password= "";
+            //set our logged in user as the responce
             props.setLogin(res);
         }
+        //if the user is not found
         else{
+            //show error
             setHookError("Incorrect Login")
         }
         
@@ -70,6 +75,7 @@ function Login(props) {
                     id="username"
                     aria-describedby="username"
                     value={hookUsername}
+                    required
                 />
             </div>
             <div className="mb-3">
@@ -82,6 +88,7 @@ function Login(props) {
                     className="form-control"
                     id="exampleInputPassword1"
                     value={hookPassword}
+                    required
                 />
             </div>
             <button type="submit" className="btn btn-primary">
@@ -94,11 +101,13 @@ function Login(props) {
     </div>
     :
     <div className="divLogin">
-        <h1 className="classh1">Logout</h1>
+        <h1 className="classh1">Sorry to see you go</h1>
         <form onSubmit={handleLogout}>
-            <button type="submit" className="btn btn-primary">
+            <div className="logout-biv">
+            <button type="submit" className="btn btn-danger">
                 Logout
             </button>
+            </div> 
         </form>
     </div>
     );

@@ -38,3 +38,13 @@ h5{
 .red-text{
     color: red;
 }
+.PWerror{
+    font-size: 11px;
+    color: red;
+    padding-left: 10px;
+}
+.logout-biv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
