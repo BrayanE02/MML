@@ -39,12 +39,12 @@
       flex-grow: 1; /* Allow text content to fill remaining space */
     }
   
-    .btn {
+    .btn-list {
       background-color: blue;
       color: white;
     }
   
-    .btn:hover {
+    .btn-list:hover {
       background-color: grey;
       color: white;
     }

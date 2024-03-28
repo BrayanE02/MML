@@ -31,3 +31,11 @@
     animation: logo-spin infinite 20s linear;
   }
 }
+
+.div-cardlist{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: left;
+}

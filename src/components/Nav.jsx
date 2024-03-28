@@ -1,16 +1,17 @@
 import "bootstrap"
 import "../css/Nav.css"
+import logo from '../assets/mml.jpg'
 
 //the props paramiter is be the json for a movie
 
-function Nav() {
-  
+function Nav(props) {
+  var loggedIn = !props.isLog;
   return (
     <>
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <div className="container-fluid">
     <a className="navbar-brand" href="/">
-      MML
+      <img src={logo} className="imgNav"/>
     </a>
     <button
       className="navbar-toggler"
@@ -30,16 +31,24 @@ function Nav() {
             My List
           </a>
         </li>
+        {loggedIn? 
+        <><li className="nav-item">
+        <a className="nav-link" href="/login">
+          Login
+        </a>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link" href="/register">
+          Sign up
+        </a>
+      </li></>
+        : 
         <li className="nav-item">
-          <a className="nav-link" href="/login">
-            Login
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="/register">
-            Sign up
-          </a>
-        </li>
+        <a className="nav-link" href="/login">
+          Log out
+        </a>
+      </li>
+      }
       </ul>
     </div>
   </div>

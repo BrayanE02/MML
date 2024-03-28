@@ -25,6 +25,7 @@ h5{
     text-align: center;
     justify-content: center;
     justify-self: center;
+    color: black;
 }
 .divLogin{
     background-color: #BCE7FD;
@@ -32,4 +33,18 @@ h5{
     margin: 1rem;
     border-radius: 10px;
     opacity: 80%;
+}
+
+.red-text{
+    color: red;
+}
+.PWerror{
+    font-size: 11px;
+    color: red;
+    padding-left: 10px;
+}
+.logout-biv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

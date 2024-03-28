@@ -10,3 +10,11 @@
 .nav-item{
     margin-right: 2rem;
 }
+
+.imgNav{
+    width: 5rem;
+    border-radius: 10px;
+}
+.imgNav:hover{
+    opacity: 85%;
+}

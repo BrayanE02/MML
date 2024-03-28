@@ -1,14 +1,19 @@
 import "../css/Login.css"
 import { useState } from "react";
+import * as UserDAO from "../services/UsersService"
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
-
+    const navigate = useNavigate();
     // Set up our hooks values
     const [hookUsername, setHookUsername] = useState("");
     const [hookPassword, setHookPassword] = useState("");
     const [hookEmail, setHookEmail] = useState("");
     const [hookFName, setHookFName] = useState("");
     const [hookLName, setHookLName] = useState("");
+
+    //error hooks
+    const [PWPass, setHookPWPass] = useState(true);
 
     //make update functions for our hooks
     const updateUsername = (event) =>{
@@ -30,9 +35,27 @@ function Register() {
 
 
     //Handle a login submit
-    const handleRegisterSubmit = (event) => {
+    const handleRegisterSubmit = async (event) => {
         event.preventDefault();
-        console.log("Register Submit: ", hookUsername, hookPassword, hookEmail, hookFName, hookLName);
+        //test if the PW is valid
+        
+        //this regex test for 6 char length, one uppercase, one lowercase and one number
+        //also symbol are allowed, but not required
+        const pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$/;
+        var didPass = pattern.test(hookPassword);
+
+        //if we passed the regex then add the user
+        if(didPass){
+            let res;
+            res = await UserDAO.addUser(hookFName, hookLName, hookEmail, hookUsername, hookPassword);
+            if(res.status == 200){
+                navigate('/login')
+            }
+        }
+        //if we didn't pass the test set our var hook for diplaying an error to true
+        else{
+            setHookPWPass(false);
+        }
     }
 
     return (
@@ -51,11 +74,13 @@ function Register() {
                     id="username"
                     aria-describedby="username"
                     value={hookUsername}
+                    required
+                    
                 />
             </div>
             <div className="mb-3">
                 <label htmlFor="Password" className="form-label">
-                    Password
+                    Password  
                 </label>
                 <input
                     onChange={updatePassword}
@@ -63,7 +88,13 @@ function Register() {
                     className="form-control"
                     id="Password"
                     value={hookPassword}
+                    required
+                    minLength={6}
                 />
+                <p className="PWerror" 
+                // either show or hide the password error based on if the password passed or not
+                style={PWPass? {opacity: 0}: {opacity: 100}}
+                >Must be 6 characters Long, have 1 uppercase letter, 1 lowercase letter, and 1 number. </p>
             </div>
             <div className="mb-3">
                 <label htmlFor="Email" className="form-label">
@@ -75,6 +106,7 @@ function Register() {
                     className="form-control"
                     id="Email"
                     value={hookEmail}
+                    required
                 />
             </div>
             <div className="mb-3">
@@ -87,6 +119,7 @@ function Register() {
                     className="form-control"
                     id="FName"
                     value={hookFName}
+                    required
                 />
             </div>
             <div className="mb-3">
@@ -99,6 +132,7 @@ function Register() {
                     className="form-control"
                     id="LName"
                     value={hookLName}
+                    required
                 />
             </div>
             
@@ -106,8 +140,8 @@ function Register() {
                 Submit
             </button>
         </form>
-        <div className="link">
-            <a href="/login">Existing User? Login Here</a>
+        <div className="link" >
+            <a href="/login" style={{ color: "black"}}>Existing User? Login Here</a>
         </div>
     </div>);
 }

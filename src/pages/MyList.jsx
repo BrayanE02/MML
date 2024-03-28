@@ -1,41 +1,35 @@
-import { useNavigate } from 'react-router-dom';
-
-// Import Bootstrap
-import 'bootstrap/dist/css/bootstrap.min.css'
 
 // Import Test Data
-import * as testdata from '../services/json/testMovie.json';
+import testdata from '../services/json/testMovie.json';
+import Card from '../components/Card';
 
-export default function MyList() {
-    const navigate = useNavigate();
+export default function MyList(props) {
 
-    // Handler for when the view button is clicked
-    const handleViewClick = () => {
-        navigate("/oneMovie")
-    }
-
-    // Handle for when the remove button is clicked
-    const handleRemoveClick = () => {
-
-    }
-
+    var User = props.user;
+    console.log(User)
     return (
         <>
             <div className="container mt-3">
-                <table>
-                    <tr>
-                        <th>Title</th>
-                        <th>Release Date</th>
-                        <th>ID</th>
-                    </tr>
-                    <tr>
-                        <tc>{testdata.title}</tc>
-                        <tc>{testdata.release_date}</tc>
-                        <tc>{testdata.id}</tc>
-                        <tc><button className='btn btn-primary' onClick={handleViewClick}>View</button></tc>
-                        <tc><button className='btn btn-primary' onClick={handleRemoveClick}>Remove</button></tc>
-                    </tr>
-                </table>
+                <h1>{User.FirstName}&apos;s List</h1>
+                <br></br>
+                <div className='container mt-3'>
+                    <h3>To Watch</h3>
+                    <div className='div-cardlist'>
+                        <Card movie={testdata} user={true}></Card>
+                    </div>
+                </div>
+                <div className='container mt-3'> 
+                    <h3>Watched</h3>
+                    <div className='div-cardlist'>
+                        <Card movie={testdata} user={true}></Card>
+                        <Card movie={testdata} user={true}></Card>
+                        <Card movie={testdata} user={true}></Card>
+                        <Card movie={testdata} user={true}></Card>
+                        <Card movie={testdata} user={true}></Card>
+                        <Card movie={testdata} user={true}></Card>
+                    </div>
+                    
+                </div>
             </div>
         </>
     )

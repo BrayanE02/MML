@@ -1,0 +1,28 @@
+.swiper-car {
+  padding-top: 10px;
+  width: 510px;
+  height: 320px;
+}
+
+.swiper-slide-car {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  
+}
+
+.swiper-slide-car:nth-child(1n) {
+  background-color: #bce7fd;
+}
+
+.h2Home{
+  text-align: center;
+  color: #f3CB13;
+  font-weight: bold;
+  font-size: 70px;
+}
+.d-block{
+  border-radius: 10px;
+}
+
