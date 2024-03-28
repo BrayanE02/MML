@@ -1,5 +1,6 @@
 import "bootstrap"
 import "../css/Nav.css"
+import logo from '../assets/mml.jpg'
 
 //the props paramiter is be the json for a movie
 
@@ -10,7 +11,7 @@ function Nav(props) {
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <div className="container-fluid">
     <a className="navbar-brand" href="/">
-      MML
+      <img src={logo} className="imgNav"/>
     </a>
     <button
       className="navbar-toggler"
