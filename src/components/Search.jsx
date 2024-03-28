@@ -43,6 +43,7 @@ function Search(props) {
                     className="form-control"
                     id="exampleInputPassword1"
                     onChange={handleSearchChange}
+                    placeholder='Enter Search Term'
                 />
                 <div className="dropdown">
                     <button
