@@ -22,7 +22,8 @@ function Login() {
         console.log("Login Submit: ", hookUsername, hookPassword);
     }
 
-    return (<>
+    return (
+    <div className="divLogin">
         <h1 className="classh1">Welcome Back to My Movie List</h1>
         <form onSubmit={handleLoginSubmit}>
             <div className="mb-3">
@@ -57,7 +58,7 @@ function Login() {
         <div className="link">
             <a href="/register">New User? Register Here</a>
         </div>
-    </>);
+    </div>);
 }
 
 export default Login;

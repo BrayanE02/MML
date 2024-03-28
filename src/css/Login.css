@@ -26,3 +26,10 @@ h5{
     justify-content: center;
     justify-self: center;
 }
+.divLogin{
+    background-color: #BCE7FD;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+    opacity: 80%;
+}

@@ -35,7 +35,8 @@ function Register() {
         console.log("Register Submit: ", hookUsername, hookPassword, hookEmail, hookFName, hookLName);
     }
 
-    return (<>
+    return (
+    <div className="divLogin">
         <h1>Welcome to My Movie List</h1>
         <h5>Please sign up below</h5>
         <form onSubmit={handleRegisterSubmit}>
@@ -108,7 +109,7 @@ function Register() {
         <div className="link">
             <a href="/login">Existing User? Login Here</a>
         </div>
-    </>);
+    </div>);
 }
 
 export default Register;
