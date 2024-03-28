@@ -1,6 +1,6 @@
 import "bootstrap"
 import "../css/Nav.css"
-import logo from '../assets/mml.jpg'
+import logoImage from '../assets/mmlfulltext.png';
 
 //the props paramiter is be the json for a movie
 
@@ -8,10 +8,10 @@ function Nav(props) {
   var loggedIn = !props.isLog;
   return (
     <>
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg">
   <div className="container-fluid">
     <a className="navbar-brand" href="/">
-      <img src={logo} className="imgNav"/>
+      <img src={logoImage} className="nav-logo"/>
     </a>
     <button
       className="navbar-toggler"
@@ -27,7 +27,7 @@ function Nav(props) {
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav">
         <li className="nav-item">
-          <a className="nav-link active" href="/MyList">
+          <a className="nav-link" href="/MyList">
             My List
           </a>
         </li>

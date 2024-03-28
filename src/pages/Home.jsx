@@ -16,7 +16,6 @@ function Home(params) {
 
     return (
         <>
-            <h2 className='h2Home'>My Movie List</h2>
             <Search></Search>
             <div className='carouselDiv'>
                 <Swiper
