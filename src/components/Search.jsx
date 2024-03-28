@@ -79,10 +79,10 @@ function Search(props) {
                                     type="radio"
                                     name="flexRadioDefault"
                                     id="flexRadioDefault1"
-                                    value={"Rating"}
+                                    value={"Year"}
                                 />
                                 <label className="form-check-label" htmlFor="flexRadioDefault1">
-                                    Rating
+                                    Year
                                 </label>
                             </>
                         </li>
