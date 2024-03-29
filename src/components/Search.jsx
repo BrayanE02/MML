@@ -35,7 +35,7 @@ function Search(props) {
             var res = await searchMovies(searchTerm, searchBy); // Call searchMovies function
             props.updateSearch(res.results); // Update search results in parent component
             console.log(res.results);
-            navigate('/SearchResults');
+            navigate('/results');
           } catch (error) {
             console.error('Error fetching search results:', error);
             // Display an error message to the user

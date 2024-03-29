@@ -10,6 +10,7 @@ import Search from '../components/Search';
 
 function SearchResults(params) {
   var results = params.searchResults;
+  console.log(results)
   const movies = results.map((movie) => {
     return(
       <Card movie={movie} key={Math.random(1, 1000)}></Card>
