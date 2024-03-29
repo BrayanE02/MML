@@ -2,7 +2,9 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import "../css/Search.css";
 
-import testdata from '../services/json/testMovie.json'
+import { searchMovies } from '../services/MoviesService';
+
+// import testdata from '../services/json/testMovie.json'
 
 function Search(props) {
     const navigate = useNavigate();
@@ -19,20 +21,37 @@ function Search(props) {
         setHookRadio(e.target.value, 10);
         console.log(hookRadio);
     };
-    const handleSearchClick = (event) => {
+    const handleSearchClick = async (event) => {
         event.preventDefault();
         //log the search term and what to search by
+        const searchTerm = hookSearch;
+        const searchBy = hookRadio;
+
+        // Testing
         console.log(hookSearch);
         console.log(hookRadio);
 
-        //query the api using the results here
-        var results = [testdata, testdata] //this is just test data for now
+        try {
+            var res = await searchMovies(searchTerm, searchBy); // Call searchMovies function
+            props.updateSearch(res.results); // Update search results in parent component
+            console.log(res.results);
+            navigate('/SearchResults');
+          } catch (error) {
+            console.error('Error fetching search results:', error);
+            // Display an error message to the user
+          }
+
+
+
+        /*query the api using the results here
+        var res = [testdata, testdata] //this is just test data for now
 
         //update the search results list with data
-        props.updateSearch(results);
+        props.updateSearch(res.results);
 
         //go to the results page
         navigate('/results')
+        */
     };
 
     return (
@@ -61,7 +80,7 @@ function Search(props) {
                                 <input
                                     className="form-check-input"
                                     type="radio"
-                                    name="flexRadioDefault"
+                                    name="searchBy"
                                     id="flexRadioDefault1"
                                     defaultChecked
                                     value={"Name"}
@@ -77,7 +96,7 @@ function Search(props) {
                                 <input
                                     className="form-check-input"
                                     type="radio"
-                                    name="flexRadioDefault"
+                                    name="searchBy"
                                     id="flexRadioDefault1"
                                     value={"Year"}
                                 />
@@ -91,7 +110,7 @@ function Search(props) {
                                 <input
                                     className="form-check-input"
                                     type="radio"
-                                    name="flexRadioDefault"
+                                    name="searchBy"
                                     id="flexRadioDefault1"
                                     value={"Genre"}
                                 />
