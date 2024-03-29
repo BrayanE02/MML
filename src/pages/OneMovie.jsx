@@ -1,7 +1,12 @@
-
+import { useNavigate } from 'react-router-dom';
 
 export default function OneMovie(props) {
-  //we have to define a base object because if it undefined we get an error
+  const navigate = useNavigate();
+  const handleClick = () => {
+    props.setOneMovieIDFunc(props.movie)
+    navigate('/AddToList')
+  };
+
   let movie={
     id: 0,
     original_title: "Error: No Movie found",
@@ -16,11 +21,12 @@ export default function OneMovie(props) {
     movie = props.movie;
 
   }
+
   return (
     <>
       <h1 className="movie-title">{movie.original_title}</h1>
       <div className="movie-container">
-        <img className="movie-image" src={"https://image.tmdb.org/t/p/w300/" + movie.poster_path} alt={movie.original_title} />
+        <img className="movie-image" src={"https://image.tmdb.org/t/p/w300/" + movie.poster_path} alt={movie.original_title + " poster"} />
         <div className="movie-details">
           <h2>Genre</h2>
           <p>{movie.genre_ids}</p>
@@ -30,9 +36,7 @@ export default function OneMovie(props) {
           <p>{movie.vote_average}</p>
           <h2>Overview</h2>
           <p>{movie.overview}</p>
-          <a href="/AddToList">
-            <button className="btn-list">Add To List</button>
-          </a>
+          <button onClick={handleClick} className="btn-list">Add To List</button>
         </div>
       </div>
     </>

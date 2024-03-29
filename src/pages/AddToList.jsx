@@ -1,9 +1,26 @@
 import { useState } from "react";
 import "../css/AddToList.css";
 
+
 export default function AddToList(props) {
-  var movie = props.movie;
-  const [isChecked, setIsChecked] = useState(false);
+
+  //we have to define a base object because if it undefined we get an error
+  let movie={
+    id: 0,
+    original_title: "Error: No Movie found",
+    poster_path: "/sJA8Nnnj547WTFwqHYNu0Y8BxHM.jpg",
+    genre_ids: [],
+    release_date: "NA",
+    vote_average: 0,
+    overview: "Please try to select another movie by navigatin back to the page you where previously on, in the mean time enjoy Kung fo Panda 4"
+  }
+  //if our movie is not undefined
+  if(props.movie){
+    movie = props.movie;
+
+  }
+
+  const [isChecked, setIsChecked] = useState(false); // set to false
 
   const handleChange = (event) => {
     setIsChecked(event.target.checked);
@@ -29,7 +46,7 @@ export default function AddToList(props) {
             />
               Put on to watch list?
           </label>
-          <div className="rating">
+          <div style={{ display: isChecked ? 'none' : 'block' }}className="rating">
           <p className="ratingp">Your Rating</p>
           <select value={rating} onChange={handleRatingChange}>
             <option value="1">1</option>
