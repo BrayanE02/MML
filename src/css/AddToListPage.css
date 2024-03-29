@@ -1,0 +1,52 @@
+.ptitle {
+  text-align: center;
+  margin-bottom: 4rem;
+  text-decoration: underline;
+}
+
+.checkbox-label {
+  font-size: 1.2rem; /* Increase text size */
+  display: flex; /* Enable flexbox for alignment */
+  align-items: center; /* Align content vertically within the label */
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 50px; /* Increase checkbox size */
+  height: 50px;
+  margin-right: 10px;
+}
+
+.rating {
+  display: flex; /* Enable flexbox for alignment */
+  align-items: center; /* Vertically center content */
+}
+
+.ratingp {
+  font-size: 16pt; /* Increase text size */
+  margin-right: 10px; /* Add spacing between text and dropdown */
+}
+
+.movie-container {
+    display: flex;
+    justify-content: center; /* Center the container horizontally */
+    align-items: flex-start; /* Align items at the start (top) vertically */
+  }
+  
+  .movie-image {
+    width: 350px; /* width of movie image */
+    margin-right: 200px; /* spacing between movie image and text */
+  }
+  
+  .movie-details {
+    flex-grow: 1; /* Allow text content to fill remaining space */
+  }
+
+  .btn {
+    background-color: blue;
+    color: white;
+  }
+
+  .btn:hover {
+    background-color: grey;
+    color: white;
+  }

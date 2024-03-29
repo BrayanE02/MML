@@ -1,0 +1,30 @@
+.movie-title {
+  text-align: center;
+  margin-bottom: 4rem;
+  text-decoration: underline;
+}
+
+.movie-container {
+    display: flex;
+    justify-content: center; /* Center the container horizontally */
+    align-items: flex-start; /* Align items at the start (top) vertically */
+  }
+  
+  .movie-image {
+    width: 350px; /* width of movie image */
+    margin-right: 200px; /* spacing between movie image and text */
+  }
+  
+  .movie-details {
+    flex: 1; /* Allow text content to fill remaining space */
+  }
+
+  .btn {
+    background-color: blue;
+    color: white;
+  }
+
+  .btn:hover {
+    background-color: grey;
+    color: white;
+  }

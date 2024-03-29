@@ -2,8 +2,8 @@
 import { Route, Routes } from 'react-router-dom';
 
 // Css imports
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './App.css'
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
 //data
 import testdata from './services/json/testMovie.json'
@@ -105,11 +105,9 @@ function App() {
       </Routes>
       
 
-        {/* Footer bar will go here: */}
-    
-    </> 
-    
-  )
+      {/* Footer bar will go here: */}
+    </>
+  );
 }
 
-export default App
+export default App;
