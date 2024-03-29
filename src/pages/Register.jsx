@@ -46,11 +46,8 @@ function Register() {
 
         //if we passed the regex then add the user
         if(didPass){
-            let res;
-            res = await UserDAO.addUser(hookFName, hookLName, hookEmail, hookUsername, hookPassword);
-            if(res.status == 200){
-                navigate('/login')
-            }
+            await UserDAO.addUser(hookFName, hookLName, hookEmail, hookUsername, hookPassword);
+            navigate('/login')
         }
         //if we didn't pass the test set our var hook for diplaying an error to true
         else{
