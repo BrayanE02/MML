@@ -127,7 +127,8 @@ export async function searchMovies(searchTerm, searchBy) {
         url = `discover/movie?with_genres=${genreId}`;
       } else {
         console.warn(`Genre '${searchTerm}' not found.`); // Handle non-existent genre
-        return []; // Return empty array for non-existent genre
+        const empty = [];
+        return empty; // Return empty array for non-existent genre
       }
     }
 
