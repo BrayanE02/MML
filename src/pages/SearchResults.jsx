@@ -13,7 +13,7 @@ function SearchResults(params) {
   console.log(results)
   const movies = results.map((movie) => {
     return(
-      <Card movie={movie} key={Math.random(1, 1000)}></Card>
+      <Card movie={movie} key={Math.random(1, 1000)} setOneMovieIDFunc={params.setOneMovieIDFunc}></Card>
     )
   });
   return (

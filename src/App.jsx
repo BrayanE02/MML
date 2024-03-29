@@ -95,7 +95,7 @@ function App() {
           
         }/>
         <Route exact path='/results' element={
-          <SearchResults changeSearch={setSearchResults} searchResults={searchResults}/>
+          <SearchResults changeSearch={setSearchResults} searchResults={searchResults} setOneMovieIDFunc={loadOneMovie}/>
         }/>
         <Route exact path='/OneMovie' element={
           <OneMovie movie={oneMovie}/>
