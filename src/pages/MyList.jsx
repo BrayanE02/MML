@@ -47,7 +47,7 @@ export default function MyList(props) {
                     <div className='div-cardlist'>
                         {moviesToWatch && moviesToWatch.map((movie, i) => {
                             if(movie)
-                                return <Card movie={movie} user={true} key={i}></Card>
+                                return <Card movie={movie} user={true} key={i} setOneMovieIDFunc={props.setOneMovieIDFunc}></Card>
                         })}
                     </div>
                 </div>
@@ -56,7 +56,7 @@ export default function MyList(props) {
                     <div className='div-cardlist'>
                         {watchedMovies && watchedMovies.map((movie, i) => {
                             if(movie)
-                                return <Card movie={movie} user={true} key={i}></Card>
+                                return <Card movie={movie} user={true} key={i}  setOneMovieIDFunc={props.setOneMovieIDFunc}></Card>
                         })}
                     </div>
                     

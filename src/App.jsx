@@ -90,7 +90,7 @@ function App() {
           <Register/> 
         }/>
         <Route exact path='/MyList' element={
-          (cookies.user != undefined)? <MyList user={cookies.user}></MyList>: <Login setLogin={login}/>
+          (cookies.user != undefined)? <MyList user={cookies.user} setOneMovieIDFunc={loadOneMovie}></MyList>: <Login setLogin={login}/>
           
         }/>
         <Route exact path='/results' element={
