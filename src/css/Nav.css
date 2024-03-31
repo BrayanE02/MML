@@ -15,7 +15,7 @@
 }
 
 .nav-logo{
-    margin-top:20px;
+   
 
 }
 .nav-link{
@@ -24,3 +24,6 @@
     font-weight: bold;
 }
 
+.nav-logo{
+    width: 12rem;
+}
