@@ -1,6 +1,4 @@
 
-// Import Test Data
-import testdata from '../services/json/testMovie.json';
 import Card from '../components/Card';
 import Cookies from 'universal-cookie';
 import { getOneMovieById } from '../services/MoviesService';
@@ -8,29 +6,35 @@ import { useEffect, useState } from 'react';
 
 export default function MyList(props) {
 
-    // A reference to the User object from props
     var User = props.user;
 
-    const [movies, setMovies] = useState("");
+    const [moviesToWatch, setMoviesToWatch] = useState(null);
+    const [watchedMovies, setWatchedMovies] = useState(null);
 
     useEffect(() => {
-        async function getMovies() {
-            const cookies = new Cookies()
-            const userCookie = cookies.get("user");
-            let moviesList = [];
+        const cookies = new Cookies()
+        const userCookie = cookies.get("user");
 
-            userCookie.List.forEach(async (i) => {
-                moviesList.push(await getOneMovieById(i.MovieID))
-            })
+        async function getMoviesToWatch() {
+            let moviesToWatchList = await Promise.all(userCookie.List.map(async (i) => {
+                if(i.watched == 0)
+                    return await getOneMovieById(i.MovieID);
+            }))
 
-            moviesList.forEach((i) => console.log("List: " + i));
-
-            setMovies(moviesList);
+            setMoviesToWatch(moviesToWatchList);
         }
 
-        if(!movies) {
-            getMovies();
+        async function getWatchedMovies() {
+            let watchedMoviesList = await Promise.all(userCookie.List.map(async (i) => {
+                if(i.watched == 1)
+                    return await getOneMovieById(i.MovieID);
+            }))
+
+            setWatchedMovies(watchedMoviesList);
         }
+
+        getMoviesToWatch();
+        getWatchedMovies();
     }, [])
 
     return (
@@ -41,20 +45,19 @@ export default function MyList(props) {
                 <div className='container mt-3'>
                     <h3>To Watch</h3>
                     <div className='div-cardlist'>
-                        
-                        <Card movie={movies[0]} user={true}></Card>
-                        <Card movie={movies[1]} user={true}></Card>
+                        {moviesToWatch && moviesToWatch.map((movie, i) => {
+                            if(movie)
+                                return <Card movie={movie} user={true} key={i}></Card>
+                        })}
                     </div>
                 </div>
                 <div className='container mt-3'> 
                     <h3>Watched</h3>
                     <div className='div-cardlist'>
-                        <Card movie={testdata} user={true}></Card>
-                        <Card movie={testdata} user={true}></Card>
-                        <Card movie={testdata} user={true}></Card>
-                        <Card movie={testdata} user={true}></Card>
-                        <Card movie={testdata} user={true}></Card>
-                        <Card movie={testdata} user={true}></Card>
+                        {watchedMovies && watchedMovies.map((movie, i) => {
+                            if(movie)
+                                return <Card movie={movie} user={true} key={i}></Card>
+                        })}
                     </div>
                     
                 </div>
