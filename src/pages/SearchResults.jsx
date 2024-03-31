@@ -10,11 +10,18 @@ import Search from '../components/Search';
 
 function SearchResults(params) {
   var results = params.searchResults;
-  const movies = results.map((movie) => {
-    return(
-      <Card movie={movie} key={Math.random(1, 1000)}></Card>
-    )
-  });
+  var movies;
+  if (results == undefined) {
+    movies = <p>Sorry no results where found, please try to search again.</p>;
+  }
+  else {
+    movies = results.map((movie) => {
+      return (
+        <Card movie={movie} key={Math.random(1, 1000)} setOneMovieIDFunc={params.setOneMovieIDFunc}></Card>
+      )
+    });
+  }
+
   return (
     <>
       {/* Search bar and dropdown */}
@@ -24,12 +31,11 @@ function SearchResults(params) {
       <h1>Search Results</h1>
 
       {/* Displaying test movie data using the Card component */}
-      <div className='container mt-3'> 
-        <h3>Watched</h3>
+      <div className='container mt-3'>
         <div className='div-cardlist'>
           {movies}
         </div>
-    </div>
+      </div>
     </>
   )
 }

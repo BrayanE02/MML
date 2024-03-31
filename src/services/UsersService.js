@@ -31,6 +31,21 @@ export async function addUser(firstname, lastname, email, username, password){
     }
     return false;
 }
+export async function addToList(UserID, MovieID, Rating, Watchlist){
+    var url = `http://localhost:5050/addToList`;
+    try {
+        const responce = await axios.post(url, {
+            userID: UserID,
+            movieID: MovieID,
+            watched: Rating,
+            rating: Watchlist
+        });
+        console.log(responce);
+    } catch (error) {
+        console.log(error);
+    }
+    return false;
+}
 
 async function tryLogin(res, username, password){
     

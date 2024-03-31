@@ -6,7 +6,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 //data
-import testdata from './services/json/testMovie.json'
 import * as APIService from './services/MoviesService'
 
 //Our component imports
@@ -95,12 +94,12 @@ function App() {
           
         }/>
         <Route exact path='/results' element={
-          <SearchResults changeSearch={setSearchResults} searchResults={searchResults}/>
+          <SearchResults changeSearch={setSearchResults} searchResults={searchResults} setOneMovieIDFunc={loadOneMovie}/>
         }/>
         <Route exact path='/OneMovie' element={
-          <OneMovie movie={oneMovie}/>
+          <OneMovie setOneMovieIDFunc={loadOneMovie} movie={oneMovie}/>
         }/>
-        <Route exact path="/AddToList" element={<AddToList movie={testdata}/>} />
+        <Route exact path="/AddToList" element={<AddToList movie={oneMovie}/>} />
 
       </Routes>
       
