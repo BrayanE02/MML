@@ -11,22 +11,25 @@ export default function MyList(props) {
     // A reference to the User object from props
     var User = props.user;
 
-    const [movieData, setMovieData] = useState("");
+    const [movies, setMovies] = useState("");
 
     useEffect(() => {
-        async function getMovieData() {
+        async function getMovies() {
             const cookies = new Cookies()
             const userCookie = cookies.get("user");
+            let moviesList = [];
 
-            const md = await getOneMovieById(userCookie.List[0].MovieID);
+            userCookie.List.forEach(async (i) => {
+                moviesList.push(await getOneMovieById(i.MovieID))
+            })
 
-            console.log("Movie: " + userCookie.List[0]);
+            moviesList.forEach((i) => console.log("List: " + i));
 
-            setMovieData(md);
+            setMovies(moviesList);
         }
 
-        if(!movieData) {
-            getMovieData();
+        if(!movies) {
+            getMovies();
         }
     }, [])
 
@@ -38,7 +41,9 @@ export default function MyList(props) {
                 <div className='container mt-3'>
                     <h3>To Watch</h3>
                     <div className='div-cardlist'>
-                        <Card movie={movieData} user={true}></Card>
+                        
+                        <Card movie={movies[0]} user={true}></Card>
+                        <Card movie={movies[1]} user={true}></Card>
                     </div>
                 </div>
                 <div className='container mt-3'> 
