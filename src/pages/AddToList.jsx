@@ -65,6 +65,7 @@ export default function AddToList(props) {
   return (
     <>
       <h1 className="ptitle">Add To List</h1>
+      <br/>
       <form onSubmit={handleAddToList}>
         <div className="movie-container">
           <img
@@ -81,6 +82,7 @@ export default function AddToList(props) {
               />
               Put on to watch list?
             </label>
+            <br/>
             <div
               style={{ display: isOnToWatchList ? "none" : "block" }}
               className="rating"
@@ -99,7 +101,8 @@ export default function AddToList(props) {
                 <option value="10">10</option>
               </select>
             </div>
-            <button className="btn-list" type="submit">
+            <br/>
+            <button className="addbtn" type="submit">
               Add To List
             </button>
           </div>

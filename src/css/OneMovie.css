@@ -1,6 +1,36 @@
+.addbtn{
+  background-color: #A0D9A9;
+  color: white;
+  position:relative;
+  margin:0;
+}
+.addbtn:focus:not(:focus-visible):not(.focus-visible) {
+  box-shadow: none;
+  outline: none;
+}
+
+.addbtn:hover {
+  background-color: #B3E9C7;
+}
+
+.addbtn:focus {
+  box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+  outline: none;
+}
+
+.addbtn:disabled {
+  background-color: #94d3a2;
+  border-color: rgba(27, 31, 35, .1);
+  color: rgba(255, 255, 255, .8);
+  cursor: default;
+}
+
+.addbtn:active {
+  background-color: #A0D9A9;
+  box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+}
 .movie-title {
     text-align: center;
-    text-decoration: underline;
   }
   
   .movie-container {
@@ -17,14 +47,4 @@
     .movie-details {
       flex: 1; /* Allow text content to fill remaining space */
     }
-  
-    .btn {
-      background-color: blue;
-      color: white;
-
-    }
-  
-    .btn:hover {
-      background-color: grey;
-      color: white;
-    }
+    

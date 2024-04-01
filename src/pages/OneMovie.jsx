@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import '../css/OneMovie.css';
 
 export default function OneMovie(props) {
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ export default function OneMovie(props) {
           <p>{movie.vote_average}</p>
           <h2>Overview</h2>
           <p>{movie.overview}</p>
-          <button onClick={handleClick} className="btn-list">Add To List</button>
+          <button onClick={handleClick} className="addbtn">Add To List</button>
         </div>
       </div>
     </>
