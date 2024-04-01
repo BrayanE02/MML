@@ -99,7 +99,7 @@ function App() {
         <Route exact path='/OneMovie' element={
           <OneMovie setOneMovieIDFunc={loadOneMovie} movie={oneMovie}/>
         }/>
-        <Route exact path="/AddToList" element={<AddToList movie={oneMovie}/>} />
+        <Route exact path="/AddToList" element={<AddToList movie={oneMovie} user={cookies.user}/>} />
 
       </Routes>
       
