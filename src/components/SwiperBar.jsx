@@ -1,4 +1,5 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide,  } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
 import Card from './Card';
 
 function SwiperBar(props) {
@@ -9,8 +10,10 @@ function SwiperBar(props) {
     }))
     return(
         <Swiper
+        modules={[Navigation]}
                 spaceBetween={1}
-                slidesPerView={3.5}
+                slidesPerView={5.5}
+                navigation={true}
             >
                 {swipes}
             </Swiper>

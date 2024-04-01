@@ -34,3 +34,13 @@ h5{
 .card-text{
     font-size: 14px;
 }
+.btn{
+    background-color: #94d3a2;
+    color: black;
+}
+.btn:hover{
+    background-color: #A0D9A9;
+}
+.btn:active{
+    background-color: #A0D9A9;
+}

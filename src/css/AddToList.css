@@ -1,72 +1,53 @@
 .ptitle {
-    text-align: center;
-  }
+  text-align: center;
+}
+
+.checkbox-label {
+  font-size: 1.2rem; /* Increase text size */
+  display: flex; /* Enable flexbox for alignment */
+  align-items: center; /* Align content vertically within the label */
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 50px; /* Increase checkbox size */
+  height: 50px;
+  margin-right: 10px;
+}
+
+.rating {
+  display: flex; /* Enable flexbox for alignment */
+  align-items: center; /* Vertically center content */
+}
+
+.ratingp {
+  font-size: 16pt; /* Increase text size */
+  margin-right: 10px; /* Add spacing between text and dropdown */
+}
   
-  .checkbox-label {
-    font-size: 1.2rem; /* Increase text size */
-    display: flex; /* Enable flexbox for alignment */
-    align-items: center; /* Align content vertically within the label */
-  }
-  
-  .checkbox-label input[type="checkbox"] {
-    width: 50px; /* Increase checkbox size */
-    height: 50px;
-    margin-right: 10px;
-  }
-  
-  .rating {
-    display: flex; /* Enable flexbox for alignment */
-    align-items: center; /* Vertically center content */
-  }
-  
-  .ratingp {
-    font-size: 16pt; /* Increase text size */
-    margin-right: 10px; /* Add spacing between text and dropdown */
-  }
-  
-  .movie-container {
-      display: flex;
-      justify-content: center; /* Center the container horizontally */
-      align-items: flex-start; /* Align items at the start (top) vertically */
-    }
-    
-    .movie-image {
-      width: 300px; /* width of movie image */
-      margin-right: 150px; /* spacing between movie image and text */
-    }
-    
-    .movie-details {
-      flex-grow: 1; /* Allow text content to fill remaining space */
-    }
-  
-    .addbtn{
-      background-color: #A0D9A9;
-      color: white;
-      position:relative;
-      margin:0;
-    }
-    .addbtn:focus:not(:focus-visible):not(.focus-visible) {
-      box-shadow: none;
-      outline: none;
-    }
-    
-    .addbtn:hover {
-      background-color: #B3E9C7;
-    }
-    
-    .addbtn:focus {
-      box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
-      outline: none;
-    }
-    
-    .addbtn:disabled {
-      background-color: #94d3a2;
-      border-color: rgba(27, 31, 35, .1);
-      color: rgba(255, 255, 255, .8);
-      cursor: default;
-    }
-    
-    .addbtn:active {
-      background-color: #A0D9A9;
-      box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
-    }
+.movie-container {
+  display: flex;
+  justify-content: center; /* Center the container horizontally */
+  align-items: flex-start; /* Align items at the start (top) vertically */
+}
+
+.movie-image {
+  width: 300px; /* width of movie image */
+  margin-right: 150px; /* spacing between movie image and text */
+}
+
+.movie-details {
+  flex-grow: 1; /* Allow text content to fill remaining space */
+}
+
+.addbtn{
+  background-color: #A0D9A9;
+  color: black;
+  position:relative;
+  margin:0;
+  border: none;
+}
+
+.addbtn:hover {
+  background-color: #B3E9C7;
+  border: none;
+}

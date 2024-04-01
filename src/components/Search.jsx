@@ -66,11 +66,12 @@ function Search(props) {
                 />
                 <div className="dropdown">
                     <button
-                        className="btn btn-search dropdown-toggle"
+                        className="btn dropdown-toggle"
                         type="button"
                         id="dropdownMenuButton1"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
+                        style={{"background-color": "#94d3a2", "border": "none"}}
                     >
                         Search By
                     </button>
@@ -122,7 +123,7 @@ function Search(props) {
                     </ul>
                 </div>
 
-                <button type="submit" className="btn btn-search">
+                <button type="submit" className="btn">
                     Search
                 </button>
             </div>

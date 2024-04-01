@@ -43,8 +43,8 @@ function Card(props) {
               {ourMovie.release_date} 
             </p>
             <div className="button-container">
-              <button type="submit" className="btn btn-primary btn-myList" onClick={handleClick}>View</button>
-              <button type="submit" className="btn btn-danger btn-myList" onClick={handleRemove}>Remove</button>
+              <button type="submit" className="btn  btn-myList" onClick={handleClick}>View</button>
+              <button type="submit" className="btn btn-myList" onClick={handleRemove}>Remove</button>
             </div>
           </div> 
       </div>

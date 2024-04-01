@@ -104,7 +104,7 @@ function Login(props) {
         <h1 className="classh1">Sorry to see you go</h1>
         <form onSubmit={handleLogout}>
             <div className="logout-biv">
-            <button type="submit" className="btn btn-danger">
+            <button type="submit" className="btn">
                 Logout
             </button>
             </div> 
