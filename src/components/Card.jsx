@@ -1,6 +1,7 @@
 import "bootstrap"
 import "../css/Card.css"
 import { useNavigate } from 'react-router-dom';
+import * as UserDataService from '../services/UsersService'
 
 //the props paramiter is be the json for a movie
 function Card(props) {
@@ -11,7 +12,10 @@ function Card(props) {
       navigate('/OneMovie')
     };
     const handleRemove = () => {
-      console.log(ourMovie.id)
+      console.log("remove", props.userMovieID)
+      UserDataService.removeFromList(props.userMovieID);
+      props.removeFromList(props.userMovieID);
+      location.reload();
     };
   
 

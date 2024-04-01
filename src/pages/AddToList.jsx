@@ -46,20 +46,8 @@ export default function AddToList(props) {
     if (isOnToWatchList == true){
       watched = 0;
     }
-    await UserDAO.addToList(User.ID, movie.id, rating, watched)
-    console.log(
-      "id:  " +
-        User.ID +
-        " title: " +
-        movie.original_title +
-        " genre: " +
-        movie.genre_ids +
-        "release_date " +
-        movie.release_date +
-        " " +
-        rating
-    );
-    props.setUser(movie.id, rating ,watched);
+    var res = await UserDAO.addToList(User.ID, movie.id, rating, watched);
+    props.setUser(movie.id, rating ,watched, res.data.insertId);
     navigate('/MyList')
   };
 

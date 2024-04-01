@@ -64,21 +64,36 @@ function App() {
     setNewMoviesList(newMovies.results);
     setBackDrops([topMovies.results[0].backdrop_path, topMovies.results[0].original_title, topComedy.results[1].backdrop_path, topComedy.results[1].original_title, newMovies.results[2].backdrop_path,newMovies.results[2].original_title, topMovies.results[3].backdrop_path, topMovies.results[3].original_title ]);
   }
-
+  //this method sets the user cookie when logged in
   const login = (prod) =>{
     setCookie('user', prod, {path: '/'});
   }
-  const addToList = (MovieID, rating, watched) =>{
+  //this adds a movie to our list
+  const addToList = (MovieID, rating, watched, ID) =>{
     let newUser = cookies.user
     console.log(newUser.user)
     newUser.List.push({
       MovieID: MovieID,
       rating: rating,
-      watched: watched
+      watched: watched,
+      ID: ID
     });
     
     setCookie('user', newUser, {path: '/'});
   }
+  //this removes our movie from the users list
+  const removeFromList = (MovieID) =>{
+    let newUser = cookies.user
+    console.log("here", newUser.user)
+    newUser.List = newUser.List.filter(function (movie){
+      if(movie.ID != MovieID){
+        return movie
+      }
+    });
+    
+    setCookie('user', newUser, {path: '/'});
+  }
+  //this logs out, or deletes the cookie
   const delCook = () =>{
     removeCookie('user', {path: '/'});
   }
@@ -102,7 +117,7 @@ function App() {
           <Register/> 
         }/>
         <Route exact path='/MyList' element={
-          (cookies.user != undefined)? <MyList user={cookies.user} setOneMovieIDFunc={loadOneMovie}></MyList>: <Login setLogin={login}/>
+          (cookies.user != undefined)? <MyList user={cookies.user} setOneMovieIDFunc={loadOneMovie} removeFromList={removeFromList}></MyList>: <Login setLogin={login}/>
           
         }/>
         <Route exact path='/results' element={
@@ -113,7 +128,7 @@ function App() {
         }/>
         <Route exact path="/AddToList" element={
         
-        (cookies.user != undefined)? <AddToList movie={oneMovie} user={cookies.user} setUser={addToList}/>: <Login setLogin={login}/>
+        (cookies.user != undefined)? <AddToList movie={oneMovie} user={cookies.user} setUser={addToList} />: <Login setLogin={login}/>
         } />
 
       </Routes>

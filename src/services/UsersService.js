@@ -41,6 +41,22 @@ export async function addToList(UserID, MovieID, Rating, Watchlist){
             rating: Watchlist
         });
         console.log(responce);
+        return(responce);
+    } catch (error) {
+        console.log(error);
+    }
+    return false;
+}
+
+export async function removeFromList(MovieID){
+    var url = `http://localhost:5050/removeFromList/${MovieID}`;
+    try {
+        const res = await axios.delete(url, {
+            somethingElse: MovieID,
+        });
+        if(res.status == 200){
+            return true;
+        }
     } catch (error) {
         console.log(error);
     }

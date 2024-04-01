@@ -18,7 +18,7 @@ export default function MyList(props) {
         async function getMoviesToWatch() {
             let moviesToWatchList = await Promise.all(userCookie.List.map(async (i) => {
                 if(i.watched == 0)
-                    return await getOneMovieById(i.MovieID);
+                    return {movie: await getOneMovieById(i.MovieID), ID: i.ID};
             }))
 
             setMoviesToWatch(moviesToWatchList);
@@ -27,7 +27,7 @@ export default function MyList(props) {
         async function getWatchedMovies() {
             let watchedMoviesList = await Promise.all(userCookie.List.map(async (i) => {
                 if(i.watched == 1)
-                    return await getOneMovieById(i.MovieID);
+                    return {movie: await getOneMovieById(i.MovieID), ID: i.ID};
             }))
 
             setWatchedMovies(watchedMoviesList);
@@ -47,7 +47,7 @@ export default function MyList(props) {
                     <div className='div-cardlist'>
                         {moviesToWatch && moviesToWatch.map((movie, i) => {
                             if(movie)
-                                return <Card movie={movie} user={true} key={i} setOneMovieIDFunc={props.setOneMovieIDFunc}></Card>
+                                return <Card movie={movie.movie} user={true} key={i} setOneMovieIDFunc={props.setOneMovieIDFunc} userMovieID={movie.ID} removeFromList={props.removeFromList} ></Card>
                         })}
                     </div>
                 </div>
@@ -56,7 +56,7 @@ export default function MyList(props) {
                     <div className='div-cardlist'>
                         {watchedMovies && watchedMovies.map((movie, i) => {
                             if(movie)
-                                return <Card movie={movie} user={true} key={i}  setOneMovieIDFunc={props.setOneMovieIDFunc}></Card>
+                                return <Card movie={movie.movie} user={true} key={i}  setOneMovieIDFunc={props.setOneMovieIDFunc} userMovieID={movie.ID} removeFromList={props.removeFromList} ></Card>
                         })}
                     </div>
                     
