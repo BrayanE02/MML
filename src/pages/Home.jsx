@@ -24,10 +24,10 @@ function Home(params) {
                     modules={[EffectCards]}
                     className="swiper-car"
                 >
-                    <SwiperSlide className='swiper-slide-car' ><img src={"https://image.tmdb.org/t/p/w500/" + backDrops[0]} className="d-block " alt="..." /></SwiperSlide>
-                    <SwiperSlide className='swiper-slide-car' ><img src={"https://image.tmdb.org/t/p/w500/" + backDrops[1]} className="d-block " alt="..." /></SwiperSlide>
-                    <SwiperSlide className='swiper-slide-car' ><img src={"https://image.tmdb.org/t/p/w500/" + backDrops[2]} className="d-block " alt="..." /></SwiperSlide>
-                    <SwiperSlide className='swiper-slide-car' ><img src={"https://image.tmdb.org/t/p/w500/" + backDrops[3]} className="d-block " alt="..." /></SwiperSlide>
+                    <SwiperSlide className='swiper-slide-car' ><div className='img-div-slider'><img src={"https://image.tmdb.org/t/p/w500/" + backDrops[0]} className="d-block " alt="..." /><p className='img-text'>{backDrops[1]}</p></div></SwiperSlide>
+                    <SwiperSlide className='swiper-slide-car' ><div className='img-div-slider'><img src={"https://image.tmdb.org/t/p/w500/" + backDrops[2]} className="d-block " alt="..." /><p className='img-text'>{backDrops[3]}</p></div></SwiperSlide>
+                    <SwiperSlide className='swiper-slide-car' ><div className='img-div-slider'><img src={"https://image.tmdb.org/t/p/w500/" + backDrops[4]} className="d-block " alt="..." /><p className='img-text'>{backDrops[5]}</p></div></SwiperSlide>
+                    <SwiperSlide className='swiper-slide-car' ><div className='img-div-slider'><img src={"https://image.tmdb.org/t/p/w500/" + backDrops[6]} className="d-block " alt="..." /><p className='img-text'>{backDrops[7]}</p></div></SwiperSlide>
                 </Swiper>
             </div>
             

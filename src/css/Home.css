@@ -1,7 +1,7 @@
 .swiper-car {
   padding-top: 10px;
   width: 610px;
-  height: 370px;
+  height: 400px;
 }
 
 .swiper-slide-car {
@@ -27,3 +27,12 @@
   width: 600px;
 }
 
+.img-text{
+  text-align: center;
+  position: relative;
+  top: 0.5rem;
+  font-weight: bold;
+}
+.img-div-slider{
+  padding: 50px;
+}

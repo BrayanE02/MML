@@ -61,7 +61,7 @@ function App() {
     setTopMovieList(topMovies.results);
     setComedyMoviesList(topComedy.results);
     setNewMoviesList(newMovies.results);
-    setBackDrops([topMovies.results[0].backdrop_path, topComedy.results[1].backdrop_path, newMovies.results[2].backdrop_path, topMovies.results[3].backdrop_path]);
+    setBackDrops([topMovies.results[0].backdrop_path, topMovies.results[0].original_title, topComedy.results[1].backdrop_path, topComedy.results[1].original_title, newMovies.results[2].backdrop_path,newMovies.results[2].original_title, topMovies.results[3].backdrop_path, topMovies.results[3].original_title ]);
   }
 
   const login = (prod) =>{
