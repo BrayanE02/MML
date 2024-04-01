@@ -1,5 +1,7 @@
 // React imports
 import { Route, Routes } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useCookies } from 'react-cookie';
 
 // Css imports
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -17,8 +19,7 @@ import Register from './pages/Register';
 import SearchResults from './pages/SearchResults';
 import Home from './pages/Home';
 import MyList from './pages/MyList';
-import { useState, useEffect } from 'react';
-import { useCookies } from 'react-cookie';
+
 
 
 
@@ -67,6 +68,17 @@ function App() {
   const login = (prod) =>{
     setCookie('user', prod, {path: '/'});
   }
+  const addToList = (MovieID, rating, watched) =>{
+    let newUser = cookies.user
+    console.log(newUser.user)
+    newUser.List.push({
+      MovieID: MovieID,
+      rating: rating,
+      watched: watched
+    });
+    
+    setCookie('user', newUser, {path: '/'});
+  }
   const delCook = () =>{
     removeCookie('user', {path: '/'});
   }
@@ -99,7 +111,10 @@ function App() {
         <Route exact path='/OneMovie' element={
           <OneMovie setOneMovieIDFunc={loadOneMovie} movie={oneMovie}/>
         }/>
-        <Route exact path="/AddToList" element={<AddToList movie={oneMovie} user={cookies.user}/>} />
+        <Route exact path="/AddToList" element={
+        
+        (cookies.user != undefined)? <AddToList movie={oneMovie} user={cookies.user} setUser={addToList}/>: <Login setLogin={login}/>
+        } />
 
       </Routes>
       

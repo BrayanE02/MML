@@ -16,7 +16,6 @@ function Login(props) {
     if(props.userCook != undefined){
         loggedin = true;
     }
-    console.log(loggedin);
     //make update functions for our hooks
     const updateUsername = (event) =>{
         setHookUsername(event.target.value);

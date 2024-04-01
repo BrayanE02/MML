@@ -71,7 +71,7 @@ function Search(props) {
                         id="dropdownMenuButton1"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
-                        style={{"background-color": "#94d3a2", "border": "none"}}
+                        style={{"backgroundColor": "#94d3a2", "border": "none"}}
                     >
                         Search By
                     </button>

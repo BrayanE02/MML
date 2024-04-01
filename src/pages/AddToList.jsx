@@ -17,7 +17,7 @@ export default function AddToList(props) {
     release_date: "NA",
     vote_average: 0,
     overview:
-      "Please try to select another movie by navigatin back to the page you where previously on, in the mean time enjoy Kung fo Panda 4",
+      "Please try to select another movie by navigating back to the page you where previously on, in the mean time enjoy Kung fu Panda 4",
   };
 
   //if our movie is not undefined
@@ -59,7 +59,8 @@ export default function AddToList(props) {
         " " +
         rating
     );
-    navigate('/')
+    props.setUser(movie.id, rating ,watched);
+    navigate('/MyList')
   };
 
   return (
