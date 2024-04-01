@@ -19,6 +19,7 @@ function Home(params) {
             <Search updateSearch={params.changeSearch}></Search>
             <div className='carouselDiv'>
                 <Swiper
+                    rewind ={true}
                     effect='cards'
                     autoplay={{
                         delay:5000,
