@@ -13,14 +13,12 @@
     margin-right: 2rem;
     color: white;
 }
-
-.nav-logo{
-    margin-top:20px;
-
-}
 .nav-link{
     color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: bold;
 }
 
+.nav-logo{
+    width: 12rem;
+}
