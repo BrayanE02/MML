@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import "../css/Search.css";
-
+import * as generes from "/src/assets/json/generes.json";
 
 import { searchMovies } from '../services/MoviesService';
 
@@ -13,6 +13,10 @@ function Search(props) {
     //set up hooks for the radio buttons and search bar
     const [hookRadio, setHookRadio] = useState("Name");
     const [hookSearch, setSearch] = useState('');
+
+    let genres = generes.genres.map((genera) =>{
+        return <option value={genera.name} key={genera.id}>{genera.name}</option>;
+    });
 
     const handleSearchChange = (e) => {
         setSearch(e.target.value);
@@ -58,6 +62,7 @@ function Search(props) {
     return (
         <form onSubmit={handleSearchClick} id='searchform'>
             <div className="mb-3 flex-container search-div">
+                {!(hookRadio == "Genre")?
                 <input
                     type="text"
                     className="form-control"
@@ -65,6 +70,15 @@ function Search(props) {
                     onChange={handleSearchChange}
                     placeholder='Enter Search Term'
                 />
+                : 
+                <select 
+                className="form-select"
+                onChange={handleSearchChange}
+                defaultValue={"Action"}
+                >
+                    {genres}
+                </select>
+                }
                 <div className="dropdown">
                     <button
                         className="btn dropdown-toggle"
