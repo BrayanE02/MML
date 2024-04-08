@@ -33,6 +33,7 @@ h5{
 }
 .card-text{
     font-size: 14px;
+    padding-bottom: 5px;
 }
 .btn{
     background-color: #94d3a2;
@@ -45,9 +46,5 @@ h5{
     background-color: #A0D9A9;
 }
 .login{
-    display: flex;
-    flex-direction: column;
-}
-.logins{
-    align-self: flex-start;
+    min-height: 33px;
 }
