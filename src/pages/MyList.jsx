@@ -49,7 +49,7 @@ export default function MyList(props) {
                     <div className='div-cardlist'>
                         {moviesToWatch && moviesToWatch.map((movie, i) => {
                             if(movie)
-                                return <Card movie={movie.movie} user={true} key={i} setOneMovieIDFunc={props.setOneMovieIDFunc} userMovieID={movie.ID} removeFromList={props.removeFromList} rating={movie.rating}></Card>
+                                return <Card movie={movie.movie} user={true} key={i} setOneMovieIDFunc={props.setOneMovieIDFunc} userMovieID={movie.ID} removeFromList={props.removeFromList} ></Card>
                         })}
                     </div>
                 </div>

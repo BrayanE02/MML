@@ -44,7 +44,8 @@ function Card(props) {
           <div className="card-body">
             <h5 className="card-title login">{ourMovie.original_title}</h5>
             <p className="card-text">
-              Rating: {props.rating} 
+              {!(props.rating == undefined)? "Rating:" + props.rating: "" }
+               
             </p>
             <div className="button-container">
               <button type="submit" className="btn btn-myList" onClick={handleClick}>View</button>
