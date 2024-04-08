@@ -1,12 +1,6 @@
 .searchbtn{
-    background-color: #B3E9C7;
-    color: white;
     position:relative;
     margin:0;
-}
-
-.searchbtn:hover {
-  background-color: #A0D9A9;
 }
 
 .searchbtn:focus {
@@ -14,17 +8,6 @@
   outline: none;
 }
 
-.searchbtn:disabled {
-  background-color: #94d3a2;
-  color: rgba(255, 255, 255, .8);
-  cursor: default;
-}
-
-.searchbtn:active {
-  background-color: #A0D9A9;
-  box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
-  border: none;
-}
 .searchbar{
     width:300px;
     display: flex;
@@ -34,8 +17,6 @@
     border-color:lightgray;
 }
 .btndropdown{
-    background-color: #B3E9C7;
-    color: white;
     margin: 0;
     border-radius: 0px;
 }
@@ -51,6 +32,10 @@
 .dropdown-menu{
   background-color: #94d3a2;
 }
-.dropdown-item:hover{
-  background-color: #A0D9A9;
+
+.dropdown-toggle{
+  min-width: 5rem;
+}
+.form-check-input{
+  margin-left: 1rem;
 }

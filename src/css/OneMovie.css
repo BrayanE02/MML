@@ -1,12 +1,6 @@
 .addbtn{
-  background-color: #A0D9A9;
-  color: black;
   position:relative;
   margin:0;
-}
-
-.addbtn:hover {
-  background-color: #B3E9C7;
 }
 
 .addbtn:focus {

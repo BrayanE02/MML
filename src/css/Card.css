@@ -39,8 +39,15 @@ h5{
     color: black;
 }
 .btn:hover{
-    background-color: #A0D9A9;
+    background-color: #B3E9C7;
 }
 .btn:active{
     background-color: #A0D9A9;
+}
+.login{
+    display: flex;
+    flex-direction: column;
+}
+.logins{
+    align-self: flex-start;
 }

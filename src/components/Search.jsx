@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import "../css/Search.css";
 
+
 import { searchMovies } from '../services/MoviesService';
 
 // import testdata from '../services/json/testMovie.json'
@@ -73,7 +74,7 @@ function Search(props) {
                         aria-expanded="false"
                         style={{"backgroundColor": "#94d3a2", "border": "none"}}
                     >
-                        Search By
+                        {hookRadio}
                     </button>
                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1" id='radiosearch' onChange={handleRadioChange}>
                         <li>

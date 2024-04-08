@@ -4,18 +4,6 @@
   padding: 2rem;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
 
 @keyframes logo-spin {
   from {
@@ -38,4 +26,16 @@
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: left;
+}
+
+button{
+  background-color: #A0D9A9;
+  color: black;
+  position:relative;
+  margin:0;
+  border: none;
+}
+button:hover{
+  background-color: #B3E9C7;
+  border: none;
 }

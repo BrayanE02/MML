@@ -48,3 +48,10 @@ h5{
     justify-content: center;
     align-items: center;
 }
+.btn{
+    border: none;
+    
+}
+.btn:hover{
+    color: black;
+}

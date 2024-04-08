@@ -41,13 +41,13 @@ function Card(props) {
       //This is for our card with a remove and add button
       <div className="card" style={{ width: "10rem", height: "23rem", cursor: "pointer" }}>
           <img src={"https://image.tmdb.org/t/p/w300/" + ourMovie.poster_path} className="card-img-top" alt={ourMovie.original_title + " poster"} />
-          <div className="card-body">
+          <div className="card-body login">
             <h5 className="card-title">{ourMovie.original_title}</h5>
             <p className="card-text">
-              {ourMovie.release_date} 
+              {props.rating} 
             </p>
             <div className="button-container">
-              <button type="submit" className="btn  btn-myList" onClick={handleClick}>View</button>
+              <button type="submit" className="btn btn-myList" onClick={handleClick}>View</button>
               <button type="submit" className="btn btn-myList" onClick={handleRemove}>Remove</button>
             </div>
           </div> 
