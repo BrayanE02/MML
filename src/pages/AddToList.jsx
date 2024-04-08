@@ -91,7 +91,13 @@ export default function AddToList(props) {
               </select>
             </div>
             <br/>
-            <button className="addbtn" type="submit">
+            <button className="btn addbtn" type="submit" style={{
+              backgroundColor: "#A0D9A9",
+              color: "black",
+              position:"relative",
+              margin:"0",
+              border: "none"
+            }}>
               Add To List
             </button>
           </div>

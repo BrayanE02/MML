@@ -37,7 +37,13 @@ export default function OneMovie(props) {
           <p>{movie.vote_average}</p>
           <h2>Overview</h2>
           <p>{movie.overview}</p>
-          <button onClick={handleClick} className="addbtn">Add To List</button>
+          <button onClick={handleClick} className="btn addbtn" style={{
+              backgroundColor: "#A0D9A9",
+              color: "black",
+              position:"relative",
+              margin:"0",
+              border: "none"
+            }}>Add To List</button>
         </div>
       </div>
     </>
