@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import '../css/OneMovie.css';
 
+import * as generes from "/src/assets/json/generes.json";
+
 export default function OneMovie(props) {
   const navigate = useNavigate();
   const handleClick = () => {
@@ -22,6 +24,13 @@ export default function OneMovie(props) {
     movie = props.movie;
 
   }
+  const getGeneras = (ids) =>{
+    const matchedGenera = ids.map((id) => {
+      const genus = generes.genres.find((genus) => genus.id === id);
+      return genus ? genus.name : 'Not found';
+    });
+    return matchedGenera.join(', ');
+  }
 
   return (
     <>
@@ -30,7 +39,7 @@ export default function OneMovie(props) {
         <img className="movie-image" src={"https://image.tmdb.org/t/p/w300/" + movie.poster_path} alt={movie.original_title + " poster"} />
         <div className="movie-details">
           <h2>Genre</h2>
-          <p>{movie.genre_ids}</p>
+          <p>{getGeneras(movie.genre_ids)}</p>
           <h2>Release Date</h2>
           <p>{movie.release_date}</p>
           <h2>Rating</h2>

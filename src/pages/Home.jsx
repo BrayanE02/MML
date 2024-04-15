@@ -47,6 +47,18 @@ function Home(params) {
             <br></br>
             <h3>New Movies</h3>
             <SwiperBar movies={moviesListNew} setOneMovieIDFunc={params.setOneMovieIDFunc}></SwiperBar>
+            <blockquote
+  className="reddit-embed-bq"
+  style={{ height: 500 }}
+  data-embed-height={740}
+>
+  <a href="https://www.reddit.com/r/OnlyMurdersHulu/comments/q6po49/its_an_actual_piece_of_art_by_ed_ruscha_google/">
+    sdf
+  </a>
+  <br /> by<a href="https://www.reddit.com/user/helenelllle/">u/helenelllle</a>{" "}
+  in<a href="https://www.reddit.com/r/OnlyMurdersHulu/">OnlyMurdersHulu</a>
+</blockquote>
+
 
         </>
     )
